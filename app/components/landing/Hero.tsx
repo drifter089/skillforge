@@ -1,20 +1,215 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { SignUpButton } from "@clerk/nextjs";
 import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
 
-export function Hero() {
+// Math-themed SVG components
+function PiSymbol({ className }: { className?: string }) {
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="38" fill="currentColor" fillOpacity="0.08" stroke="currentColor" strokeWidth="1" strokeOpacity="0.2" />
+      <text x="40" y="52" textAnchor="middle" fill="currentColor" fontSize="36" fontWeight="bold" fontFamily="serif">π</text>
+    </svg>
+  );
+}
+
+function SigmaSymbol({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="38" fill="currentColor" fillOpacity="0.08" stroke="currentColor" strokeWidth="1" strokeOpacity="0.2" />
+      <text x="40" y="54" textAnchor="middle" fill="currentColor" fontSize="40" fontWeight="bold" fontFamily="serif">Σ</text>
+    </svg>
+  );
+}
+
+function SquareRoot({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 90 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 40 L18 55 L38 12 L85 12" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <text x="60" y="45" fill="currentColor" fontSize="24" fontWeight="600" fontFamily="serif" fontStyle="italic">x</text>
+    </svg>
+  );
+}
+
+function IntegralSymbol({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M35 10 C25 10 25 25 25 45 C25 65 25 80 15 80" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none" />
+      <circle cx="38" cy="10" r="4" fill="currentColor" />
+      <circle cx="12" cy="80" r="4" fill="currentColor" />
+    </svg>
+  );
+}
+
+function DeltaSymbol({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M35 8 L65 62 L5 62 Z" stroke="currentColor" strokeWidth="3" fill="currentColor" fillOpacity="0.08" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function InfinitySymbol({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M25 25C25 12 38 12 45 25C52 38 65 38 65 25C65 12 78 12 78 25C78 38 65 38 58 25C51 12 38 12 25 25Z" stroke="currentColor" strokeWidth="3.5" fill="none" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function GraphIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8" y="8" width="64" height="64" rx="6" fill="currentColor" fillOpacity="0.06" stroke="currentColor" strokeWidth="1" strokeOpacity="0.2" />
+      {/* Grid lines */}
+      <path d="M8 40 L72 40 M40 8 L40 72" stroke="currentColor" strokeWidth="1" strokeOpacity="0.3" />
+      {/* Parabola */}
+      <path d="M15 65 Q40 5 65 65" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
+      {/* Vertex point */}
+      <circle cx="40" cy="15" r="4" fill="currentColor" />
+    </svg>
+  );
+}
+
+function SineWave({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 30 Q15 5 30 30 Q45 55 60 30 Q75 5 90 30 Q105 55 120 30" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PythagorasIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Triangle */}
+      <path d="M10 70 L10 20 L70 70 Z" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.06" />
+      {/* Right angle marker */}
+      <path d="M10 60 L20 60 L20 70" stroke="currentColor" strokeWidth="2" fill="none" />
+      {/* Labels */}
+      <text x="5" y="48" fill="currentColor" fontSize="14" fontWeight="bold" fontFamily="serif" fontStyle="italic">a</text>
+      <text x="38" y="78" fill="currentColor" fontSize="14" fontWeight="bold" fontFamily="serif" fontStyle="italic">b</text>
+      <text x="42" y="40" fill="currentColor" fontSize="14" fontWeight="bold" fontFamily="serif" fontStyle="italic">c</text>
+    </svg>
+  );
+}
+
+function FractionSymbol({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="30" y="28" textAnchor="middle" fill="currentColor" fontSize="24" fontWeight="bold" fontFamily="serif" fontStyle="italic">x</text>
+      <path d="M10 40 L50 40" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <text x="30" y="68" textAnchor="middle" fill="currentColor" fontSize="24" fontWeight="bold" fontFamily="serif" fontStyle="italic">y</text>
+    </svg>
+  );
+}
+
+export function Hero() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const mathSymbolsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate content on load
+      gsap.from(contentRef.current?.children || [], {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+      });
+
+      // Animate math symbols
+      const symbols = mathSymbolsRef.current?.querySelectorAll(".math-symbol");
+      if (symbols) {
+        gsap.from(symbols, {
+          scale: 0,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "back.out(1.7)",
+          delay: 0.5,
+        });
+
+        // Floating animation for each symbol
+        symbols.forEach((symbol, index) => {
+          const randomX = (Math.random() - 0.5) * 30;
+          const randomY = (Math.random() - 0.5) * 40;
+          const duration = 4 + Math.random() * 3;
+          const delay = index * 0.2;
+
+          gsap.to(symbol, {
+            y: randomY,
+            x: randomX,
+            rotation: (Math.random() - 0.5) * 15,
+            duration: duration,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+            delay: delay,
+          });
+        });
+      }
+
+      // Animate background blobs
+      const blobs = heroRef.current?.querySelectorAll(".bg-blob");
+      blobs?.forEach((blob, index) => {
+        gsap.to(blob, {
+          scale: 1.1 + Math.random() * 0.2,
+          x: (Math.random() - 0.5) * 50,
+          y: (Math.random() - 0.5) * 50,
+          duration: 8 + index * 2,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
+      });
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={heroRef} className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden min-h-[90vh] flex items-center">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-linear-br from-blue-50 via-white to-orange-50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50" />
 
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl opacity-30" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-200 rounded-full blur-3xl opacity-30" />
+      {/* Animated background blobs */}
+      <div className="bg-blob absolute top-10 left-10 w-80 h-80 bg-blue-200 rounded-full blur-3xl opacity-30" />
+      <div className="bg-blob absolute bottom-10 right-10 w-96 h-96 bg-indigo-200 rounded-full blur-3xl opacity-25" />
+      <div className="bg-blob absolute top-1/2 left-1/3 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-20" />
 
-      <Container className="relative">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Math Symbols Container */}
+      <div ref={mathSymbolsRef} className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Left Side */}
+        <PiSymbol className="math-symbol absolute top-[15%] left-[5%] w-16 h-16 text-blue-500/60 hidden lg:block" />
+        <SigmaSymbol className="math-symbol absolute top-[50%] left-[3%] w-14 h-14 text-indigo-500/50 hidden lg:block" />
+        <IntegralSymbol className="math-symbol absolute bottom-[25%] left-[8%] w-10 h-16 text-blue-600/50 hidden lg:block" />
+        <GraphIcon className="math-symbol absolute top-[25%] left-[12%] w-20 h-20 text-blue-400/40 hidden xl:block" />
+        <FractionSymbol className="math-symbol absolute bottom-[40%] left-[15%] w-12 h-16 text-indigo-400/45 hidden xl:block" />
+
+        {/* Right Side */}
+        <SquareRoot className="math-symbol absolute top-[12%] right-[6%] w-20 h-16 text-blue-500/55 hidden lg:block" />
+        <DeltaSymbol className="math-symbol absolute top-[45%] right-[4%] w-14 h-14 text-indigo-500/50 hidden lg:block" />
+        <InfinitySymbol className="math-symbol absolute bottom-[30%] right-[8%] w-20 h-10 text-blue-400/45 hidden lg:block" />
+        <SineWave className="math-symbol absolute top-[28%] right-[14%] w-24 h-12 text-indigo-400/40 hidden xl:block" />
+        <PythagorasIcon className="math-symbol absolute bottom-[15%] right-[12%] w-16 h-16 text-blue-500/40 hidden xl:block" />
+
+        {/* Small floating dots */}
+        <div className="math-symbol absolute top-[35%] left-[20%] w-3 h-3 bg-blue-400/50 rounded-full hidden md:block" />
+        <div className="math-symbol absolute top-[60%] right-[20%] w-2 h-2 bg-indigo-400/60 rounded-full hidden md:block" />
+        <div className="math-symbol absolute bottom-[45%] left-[25%] w-4 h-4 bg-purple-400/40 rounded-full hidden md:block" />
+        <div className="math-symbol absolute top-[20%] right-[25%] w-3 h-3 bg-blue-500/50 rounded-full hidden md:block" />
+      </div>
+
+      <Container className="relative z-10">
+        <div ref={contentRef} className="max-w-3xl mx-auto text-center px-2">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-8">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-100 text-blue-700 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
@@ -23,57 +218,33 @@ export function Hero() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-            From Struggling to{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700">
-              Confident.
-            </span>
-            <br />
-            <span className="text-slate-700">
-              Live Matric Maths Classes That Actually Work.
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-4 sm:mb-6">
+            Private math tutor,{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              but affordable.
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-2xl mx-auto">
-            Small classes. Real teachers. Results you can see.
+          <p className="text-base md:text-lg text-slate-600 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+            For the price of one hour of private tutoring, you get an entire month of live classes.
           </p>
 
-          {/* Value props */}
-          <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm md:text-base text-slate-600">
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span>Only 25 students per class</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span>12+ hours monthly</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span>From R1,299/month</span>
-            </div>
-          </div>
-
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button as="anchor" href="#signup" variant="primary" size="lg">
-              Join the Waitlist — Get Early Access
-            </Button>
-            <Button as="anchor" href="#pricing" variant="outline" size="lg">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            <SignUpButton mode="modal">
+              <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                Book Free Onboarding Call
+              </Button>
+            </SignUpButton>
+            <Button as="anchor" href="#how-it-works" variant="outline" size="lg" className="w-full sm:w-auto">
               See How It Works
             </Button>
           </div>
 
-          {/* Social proof mini */}
-          <p className="mt-10 text-sm text-slate-500">
-            Join <span className="font-semibold text-slate-700">500+</span> students already on the waitlist
+          {/* Urgency text */}
+          <p className="mt-5 sm:mt-6 text-sm font-medium text-orange-600">
+            Limited seats available for first batch
           </p>
         </div>
       </Container>
