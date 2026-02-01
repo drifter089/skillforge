@@ -12,8 +12,9 @@ import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
 
 const navLinks = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "classes", href: "#Classes" },
+  { label: "Teachers", href: "#Teachers" },
+  { label: "Pricing", href: "#Pricing"},
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -26,7 +27,7 @@ export function Header() {
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-linear-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-lg">M</span>
             </div>
             <span className="font-bold text-xl text-slate-900 hidden sm:block">
@@ -57,7 +58,7 @@ export function Header() {
               </SignInButton>
               <SignUpButton mode="modal">
                 <Button variant="primary" size="sm">
-                  Get Started
+                  Book Free Lesson
                 </Button>
               </SignUpButton>
             </SignedOut>
