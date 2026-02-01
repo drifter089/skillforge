@@ -12,10 +12,7 @@ import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Classes", href: "#classes" },
-  { label: "Teachers", href: "#teachers" },
-  { label: "Pricing", href: "#pricing"},
+  { label: "How It Works", href: "#how-it-works" },
   { label: "FAQ", href: "#faq" },
 ];
 
