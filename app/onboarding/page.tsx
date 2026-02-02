@@ -265,7 +265,7 @@ export default function OnboardingPage() {
           {/* Cal.com Embed */}
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
             <Cal
-              calLink="akshat-mittal-dev/30min"
+              calLink="akshat-mittal-e63erx/30min"
               style={{ width: "100%", height: "100%", overflow: "scroll" }}
               config={{
                 name: user?.fullName || "",
