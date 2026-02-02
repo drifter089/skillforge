@@ -5,6 +5,7 @@ import { useUser, UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Cal, { getCalApi } from "@calcom/embed-react";
+import { Logo } from "@/app/components/Logo";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -149,9 +150,7 @@ export default function OnboardingPage() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg sm:rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-base sm:text-lg">M</span>
-            </div>
+            <Logo size="sm" className="sm:w-10 sm:h-10" />
             <span className="font-bold text-xl text-slate-900 hidden sm:block">MatricMaths</span>
           </Link>
 

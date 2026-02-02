@@ -2,6 +2,7 @@
 
 import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
+import { Logo } from "../Logo";
 
 export function FooterCTA() {
   return (
@@ -43,9 +44,7 @@ export function FooterCTA() {
         <Container>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
-              </div>
+              <Logo size="sm" />
               <span>MatricMaths</span>
             </div>
             <div className="flex gap-6">

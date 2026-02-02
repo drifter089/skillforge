@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
+import { Logo } from "../Logo";
 
 const navLinks = [
   { label: "How It Works", href: "#how-it-works" },
@@ -24,9 +25,7 @@ export function Header() {
         <nav className="flex items-center justify-between h-12 sm:h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg sm:rounded-xl flex items-center justify-center shadow-sm">
-              <span className="text-white font-bold text-base sm:text-lg">M</span>
-            </div>
+            <Logo size="sm" className="sm:w-10 sm:h-10" />
             <span className="font-bold text-xl text-slate-900 hidden sm:block">
               MatricMaths
             </span>
@@ -48,7 +47,7 @@ export function Header() {
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center gap-4">
             <SignedOut>
-              <Button as="link" href="/sign-in" variant="ghost" size="sm">
+              <Button as="link" href="/sign-in" variant="outline" size="sm">
                 Sign In
               </Button>
               <Button as="link" href="/onboarding" variant="primary" size="sm">
