@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { SignUpButton } from "@clerk/nextjs";
 import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
 
@@ -232,11 +231,9 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-            <SignUpButton mode="modal">
-              <Button variant="primary" size="lg" className="w-full sm:w-auto">
-                Book Free Onboarding Call
-              </Button>
-            </SignUpButton>
+            <Button as="link" href="/onboarding" variant="primary" size="lg" className="w-full sm:w-auto">
+              Book Free Onboarding Call
+            </Button>
             <Button as="anchor" href="#how-it-works" variant="outline" size="lg" className="w-full sm:w-auto">
               See How It Works
             </Button>
