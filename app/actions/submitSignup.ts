@@ -5,7 +5,7 @@ export interface SignupFormState {
   message: string;
   errors?: {
     name?: string;
-    whatsapp?: string;
+    phone?: string;
     email?: string;
     grade?: string;
     province?: string;
@@ -56,7 +56,7 @@ export async function submitSignup(
 ): Promise<SignupFormState> {
   const rawData = {
     name: formData.get("name") as string,
-    whatsapp: formData.get("whatsapp") as string,
+    phone: formData.get("phone") as string,
     email: formData.get("email") as string,
     grade: formData.get("grade") as string,
     province: formData.get("province") as string,
@@ -72,10 +72,10 @@ export async function submitSignup(
     errors.name = "Please enter your full name (at least 2 characters)";
   }
 
-  // Validate WhatsApp
-  const cleanedPhone = rawData.whatsapp?.replace(/\s/g, "");
+  // Validate phone
+  const cleanedPhone = rawData.phone?.replace(/\s/g, "");
   if (!cleanedPhone || !SA_PHONE_REGEX.test(cleanedPhone)) {
-    errors.whatsapp = "Please enter a valid SA phone number (e.g., 0612345678)";
+    errors.phone = "Please enter a valid SA phone number (e.g., 0612345678)";
   }
 
   // Validate email
@@ -120,7 +120,7 @@ export async function submitSignup(
   // Log the signup (for now - later save to database)
   console.log("=== NEW SIGNUP ===");
   console.log("Name:", rawData.name);
-  console.log("WhatsApp:", cleanedPhone);
+  console.log("Phone:", cleanedPhone);
   console.log("Email:", rawData.email);
   console.log("Grade:", rawData.grade);
   console.log("Province:", rawData.province);
@@ -133,11 +133,11 @@ export async function submitSignup(
   // TODO: Save to database
   // await db.signups.create({ data: rawData });
 
-  // TODO: Send confirmation email/WhatsApp
-  // await sendWelcomeMessage(rawData.whatsapp, rawData.name);
+  // TODO: Send confirmation email
+  // await sendWelcomeEmail(rawData.email, rawData.name);
 
   return {
     success: true,
-    message: "Thank you for joining the waitlist! We'll contact you soon on WhatsApp."
+    message: "Thank you for joining the waitlist! We'll contact you soon via email."
   };
 }
