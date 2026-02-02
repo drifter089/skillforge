@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import {
-  SignInButton,
-  SignUpButton,
   SignedIn,
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import Link from "next/link";
 import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
 
@@ -49,18 +48,20 @@ export function Header() {
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center gap-4">
             <SignedOut>
-              <SignInButton mode="modal">
-                <Button variant="ghost" size="sm">
-                  Sign In
-                </Button>
-              </SignInButton>
-              <SignUpButton mode="modal">
-                <Button variant="primary" size="sm">
-                  Book Free Lesson
-                </Button>
-              </SignUpButton>
+              <Button as="link" href="/sign-in" variant="ghost" size="sm">
+                Sign In
+              </Button>
+              <Button as="link" href="/onboarding" variant="primary" size="sm">
+                Book Free Lesson
+              </Button>
             </SignedOut>
             <SignedIn>
+              <Link
+                href="/dashboard"
+                className="text-slate-600 hover:text-blue-600 font-medium transition-colors mr-2"
+              >
+                Dashboard
+              </Link>
               <UserButton
                 appearance={{
                   elements: {
@@ -105,18 +106,17 @@ export function Header() {
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-slate-200">
                 <SignedOut>
-                  <SignInButton mode="modal">
-                    <Button variant="outline" size="md" className="w-full">
-                      Sign In
-                    </Button>
-                  </SignInButton>
-                  <SignUpButton mode="modal">
-                    <Button variant="primary" size="md" className="w-full">
-                      Get Started
-                    </Button>
-                  </SignUpButton>
+                  <Button as="link" href="/sign-in" variant="outline" size="md" className="w-full">
+                    Sign In
+                  </Button>
+                  <Button as="link" href="/onboarding" variant="primary" size="md" className="w-full">
+                    Get Started
+                  </Button>
                 </SignedOut>
                 <SignedIn>
+                  <Button as="link" href="/dashboard" variant="outline" size="md" className="w-full mb-2">
+                    Dashboard
+                  </Button>
                   <div className="flex justify-center">
                     <UserButton />
                   </div>

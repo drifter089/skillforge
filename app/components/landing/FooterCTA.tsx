@@ -1,6 +1,5 @@
 "use client";
 
-import { SignUpButton } from "@clerk/nextjs";
 import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
 
@@ -19,11 +18,9 @@ export function FooterCTA() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-            <SignUpButton mode="modal">
-              <Button variant="primary" size="lg">
-                Book Free Onboarding Call
-              </Button>
-            </SignUpButton>
+            <Button as="link" href="/onboarding" variant="primary" size="lg">
+              Book Free Onboarding Call
+            </Button>
             <Button as="anchor" href="#how-it-works" variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
               See How It Works
             </Button>
