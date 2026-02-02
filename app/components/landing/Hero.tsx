@@ -184,25 +184,25 @@ export function Hero() {
 
       {/* Math Symbols Container */}
       <div ref={mathSymbolsRef} className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Left Side */}
-        <PiSymbol className="math-symbol absolute top-[15%] left-[5%] w-16 h-16 text-blue-500/60 hidden lg:block" />
-        <SigmaSymbol className="math-symbol absolute top-[50%] left-[3%] w-14 h-14 text-indigo-500/50 hidden lg:block" />
-        <IntegralSymbol className="math-symbol absolute bottom-[25%] left-[8%] w-10 h-16 text-blue-600/50 hidden lg:block" />
-        <GraphIcon className="math-symbol absolute top-[25%] left-[12%] w-20 h-20 text-blue-400/40 hidden xl:block" />
-        <FractionSymbol className="math-symbol absolute bottom-[40%] left-[15%] w-12 h-16 text-indigo-400/45 hidden xl:block" />
+        {/* Left Side - visible on all screens with responsive sizes */}
+        <PiSymbol className="math-symbol absolute top-[15%] left-[2%] sm:left-[5%] w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 text-blue-500/50 sm:text-blue-500/60" />
+        <SigmaSymbol className="math-symbol absolute top-[55%] sm:top-[50%] left-[1%] sm:left-[3%] w-9 h-9 sm:w-11 sm:h-11 lg:w-14 lg:h-14 text-indigo-500/40 sm:text-indigo-500/50" />
+        <IntegralSymbol className="math-symbol absolute bottom-[20%] sm:bottom-[25%] left-[5%] sm:left-[8%] w-7 h-11 sm:w-8 sm:h-13 lg:w-10 lg:h-16 text-blue-600/40 sm:text-blue-600/50" />
+        <GraphIcon className="math-symbol absolute top-[30%] sm:top-[25%] left-[8%] sm:left-[12%] w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-blue-400/30 sm:text-blue-400/40 hidden sm:block" />
+        <FractionSymbol className="math-symbol absolute bottom-[35%] sm:bottom-[40%] left-[12%] sm:left-[15%] w-8 h-12 sm:w-10 sm:h-14 lg:w-12 lg:h-16 text-indigo-400/35 sm:text-indigo-400/45 hidden md:block" />
 
-        {/* Right Side */}
-        <SquareRoot className="math-symbol absolute top-[12%] right-[6%] w-20 h-16 text-blue-500/55 hidden lg:block" />
-        <DeltaSymbol className="math-symbol absolute top-[45%] right-[4%] w-14 h-14 text-indigo-500/50 hidden lg:block" />
-        <InfinitySymbol className="math-symbol absolute bottom-[30%] right-[8%] w-20 h-10 text-blue-400/45 hidden lg:block" />
-        <SineWave className="math-symbol absolute top-[28%] right-[14%] w-24 h-12 text-indigo-400/40 hidden xl:block" />
-        <PythagorasIcon className="math-symbol absolute bottom-[15%] right-[12%] w-16 h-16 text-blue-500/40 hidden xl:block" />
+        {/* Right Side - visible on all screens with responsive sizes */}
+        <SquareRoot className="math-symbol absolute top-[12%] right-[2%] sm:right-[6%] w-14 h-11 sm:w-16 sm:h-13 lg:w-20 lg:h-16 text-blue-500/45 sm:text-blue-500/55" />
+        <DeltaSymbol className="math-symbol absolute top-[50%] sm:top-[45%] right-[1%] sm:right-[4%] w-10 h-10 sm:w-11 sm:h-11 lg:w-14 lg:h-14 text-indigo-500/40 sm:text-indigo-500/50" />
+        <InfinitySymbol className="math-symbol absolute bottom-[25%] sm:bottom-[30%] right-[5%] sm:right-[8%] w-14 h-7 sm:w-16 sm:h-8 lg:w-20 lg:h-10 text-blue-400/35 sm:text-blue-400/45" />
+        <SineWave className="math-symbol absolute top-[28%] right-[10%] sm:right-[14%] w-16 h-8 sm:w-20 sm:h-10 lg:w-24 lg:h-12 text-indigo-400/30 sm:text-indigo-400/40 hidden sm:block" />
+        <PythagorasIcon className="math-symbol absolute bottom-[12%] sm:bottom-[15%] right-[8%] sm:right-[12%] w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-blue-500/30 sm:text-blue-500/40 hidden md:block" />
 
-        {/* Small floating dots */}
-        <div className="math-symbol absolute top-[35%] left-[20%] w-3 h-3 bg-blue-400/50 rounded-full hidden md:block" />
-        <div className="math-symbol absolute top-[60%] right-[20%] w-2 h-2 bg-indigo-400/60 rounded-full hidden md:block" />
-        <div className="math-symbol absolute bottom-[45%] left-[25%] w-4 h-4 bg-purple-400/40 rounded-full hidden md:block" />
-        <div className="math-symbol absolute top-[20%] right-[25%] w-3 h-3 bg-blue-500/50 rounded-full hidden md:block" />
+        {/* Small floating dots - visible on all screens */}
+        <div className="math-symbol absolute top-[35%] left-[18%] sm:left-[20%] w-2 h-2 sm:w-3 sm:h-3 bg-blue-400/40 sm:bg-blue-400/50 rounded-full" />
+        <div className="math-symbol absolute top-[65%] sm:top-[60%] right-[18%] sm:right-[20%] w-2 h-2 bg-indigo-400/50 sm:bg-indigo-400/60 rounded-full" />
+        <div className="math-symbol absolute bottom-[45%] left-[22%] sm:left-[25%] w-3 h-3 sm:w-4 sm:h-4 bg-purple-400/30 sm:bg-purple-400/40 rounded-full" />
+        <div className="math-symbol absolute top-[20%] right-[22%] sm:right-[25%] w-2 h-2 sm:w-3 sm:h-3 bg-blue-500/40 sm:bg-blue-500/50 rounded-full" />
       </div>
 
       <Container className="relative z-10">

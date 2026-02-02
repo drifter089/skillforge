@@ -12,7 +12,7 @@ const tiers = [
       "1 live class per week (50 students)",
       "Recordings of all classes",
       "Siyavula textbook access",
-      "Basic WhatsApp community group",
+      "Community discussion forum",
       "Weekly practice quiz"
     ],
     cta: "Join Free Tier",
@@ -29,7 +29,7 @@ const tiers = [
     features: [
       "2 live classes per week (25 students max)",
       "All class recordings",
-      "WhatsApp group with your batch",
+      "Study group with your batch",
       "Weekly homework review",
       "Monthly progress report",
       "Exam prep workshops",
@@ -50,7 +50,7 @@ const tiers = [
       "Everything in Standard, PLUS:",
       "Smaller classes (15 students max)",
       "Weekly 15-min 1:1 teacher check-in",
-      "Priority WhatsApp support (2 hours)",
+      "Priority email support (2 hours)",
       "Personalised study plan",
       "Extra exam technique sessions",
       "University application guidance"
