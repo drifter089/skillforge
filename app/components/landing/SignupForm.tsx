@@ -47,14 +47,14 @@ export function SignupForm() {
   };
 
   return (
-    <section id="signup" className="py-16 md:py-28 bg-white">
+    <section id="signup" className="py-16 md:py-28 bg-slate-800">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 md:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
             Book Your Free Onboarding Call
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto px-2">
+          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto px-2">
             Let's find the right learning path for you.
           </p>
         </div>
@@ -62,16 +62,16 @@ export function SignupForm() {
         {/* Signed Out State */}
         <SignedOut>
           <div className="max-w-lg mx-auto text-center px-2">
-            <div className="bg-slate-50 rounded-2xl p-6 sm:p-8">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700/50">
+              <div className="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-xl font-bold text-white mb-3">
                 Please sign in to continue
               </h3>
-              <p className="text-slate-600 mb-6">
+              <p className="text-slate-300 mb-6">
                 Create an account to book your free onboarding session and get started.
               </p>
               <SignUpButton mode="modal">
@@ -86,11 +86,11 @@ export function SignupForm() {
         {/* Signed In State - Show Form */}
         <SignedIn>
           <div className="max-w-lg mx-auto px-2">
-            <form onSubmit={handleSubmit} className="bg-slate-50 rounded-2xl p-5 sm:p-6 md:p-8">
+            <form onSubmit={handleSubmit} className="bg-slate-800/50 rounded-2xl p-5 sm:p-6 md:p-8 border border-slate-700/50">
               {/* Grade Selection */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-slate-700 mb-3">
-                  What grade are you in? <span className="text-red-500">*</span>
+                <label className="block text-sm font-medium text-slate-200 mb-3">
+                  What grade are you in? <span className="text-red-400">*</span>
                 </label>
                 <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {grades.map((g) => (
@@ -99,8 +99,8 @@ export function SignupForm() {
                       className={`
                         flex items-center justify-center p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-colors active:scale-[0.98]
                         ${grade === g.value
-                          ? "border-indigo-500 bg-indigo-50 text-indigo-700"
-                          : "border-slate-200 bg-white hover:border-slate-300 active:bg-slate-50"
+                          ? "border-indigo-500 bg-indigo-500/20 text-indigo-300"
+                          : "border-slate-600 bg-slate-700/50 text-slate-200 hover:border-slate-500 active:bg-slate-700"
                         }
                       `}
                     >
@@ -121,8 +121,8 @@ export function SignupForm() {
 
               {/* Class Size Preference */}
               <div className="mb-6 sm:mb-8">
-                <label className="block text-sm font-medium text-slate-700 mb-3">
-                  Preferred class size? <span className="text-red-500">*</span>
+                <label className="block text-sm font-medium text-slate-200 mb-3">
+                  Preferred class size? <span className="text-red-400">*</span>
                 </label>
                 <div className="space-y-2 sm:space-y-3">
                   {classSizes.map((size) => (
@@ -131,8 +131,8 @@ export function SignupForm() {
                       className={`
                         flex items-start gap-3 p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-colors active:scale-[0.99]
                         ${classSize === size.value
-                          ? "border-indigo-500 bg-indigo-50"
-                          : "border-slate-200 bg-white hover:border-slate-300 active:bg-slate-50"
+                          ? "border-indigo-500 bg-indigo-500/20"
+                          : "border-slate-600 bg-slate-700/50 hover:border-slate-500 active:bg-slate-700"
                         }
                       `}
                     >
@@ -146,8 +146,8 @@ export function SignupForm() {
                         required
                       />
                       <div>
-                        <div className="font-medium text-slate-900 text-sm sm:text-base">{size.label}</div>
-                        <div className="text-xs sm:text-sm text-slate-500">{size.description}</div>
+                        <div className="font-medium text-white text-sm sm:text-base">{size.label}</div>
+                        <div className="text-xs sm:text-sm text-slate-400">{size.description}</div>
                       </div>
                     </label>
                   ))}
@@ -175,7 +175,7 @@ export function SignupForm() {
                 )}
               </Button>
 
-              <p className="mt-4 text-center text-sm text-slate-500">
+              <p className="mt-4 text-center text-sm text-slate-400">
                 Takes 15 minutes. We'll discuss your goals and find the right plan.
               </p>
             </form>

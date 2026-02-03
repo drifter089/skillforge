@@ -66,14 +66,14 @@ const features = [
 
 export function SolutionSection() {
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-20 md:py-28 bg-slate-900">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Small Classes. Real Teachers. Real Results.
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             Imagine a maths class where your teacher actually knows your name. That's what we built.
           </p>
         </div>
@@ -84,7 +84,7 @@ export function SolutionSection() {
             <Card key={index} hover padding="lg" className="relative">
               {/* Highlight badge */}
               <div className="absolute top-4 right-4">
-                <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-semibold rounded-full">
+                <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-xs font-semibold rounded-full border border-indigo-500/30">
                   {feature.highlight}
                 </span>
               </div>
@@ -93,10 +93,10 @@ export function SolutionSection() {
                 <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center text-white mb-5">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                <h3 className="text-xl font-bold text-white mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600">
+                <p className="text-slate-300">
                   {feature.description}
                 </p>
               </CardContent>

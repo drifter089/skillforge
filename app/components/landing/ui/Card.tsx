@@ -21,8 +21,8 @@ export function Card({
   return (
     <div
       className={`
-        bg-white rounded-2xl shadow-sm border border-slate-200
-        ${hover ? "transition-all duration-300 hover:shadow-lg hover:-translate-y-1" : ""}
+        bg-slate-800/50 rounded-2xl shadow-sm border border-slate-700/50
+        ${hover ? "transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-1 hover:border-indigo-500/30" : ""}
         ${paddings[padding]}
         ${className}
       `}
@@ -53,7 +53,7 @@ interface CardTitleProps {
 
 export function CardTitle({ children, className = "", as: Component = "h3" }: CardTitleProps) {
   return (
-    <Component className={`text-xl font-bold text-slate-900 ${className}`}>
+    <Component className={`text-xl font-bold text-white ${className}`}>
       {children}
     </Component>
   );
@@ -66,7 +66,7 @@ interface CardDescriptionProps {
 
 export function CardDescription({ children, className = "" }: CardDescriptionProps) {
   return (
-    <p className={`text-slate-600 ${className}`}>
+    <p className={`text-slate-300 ${className}`}>
       {children}
     </p>
   );

@@ -25,11 +25,12 @@
   --color-accent-800: #5b21b6;
   --color-accent-900: #4c1d95;
 
-  /* Backgrounds */
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  /* Backgrounds - Dark theme following 60-30-10 rule */
+  --background: #0f172a;  /* slate-900 - 60% dominant */
+  --background-secondary: #1e293b;  /* slate-800 - 30% secondary */
+  --foreground: #f1f5f9;  /* slate-100 */
+  --muted: #334155;  /* slate-700 */
+  --muted-foreground: #94a3b8;  /* slate-400 */
 
   /* Fonts */
   --font-sans: var(--font-nunito), system-ui, sans-serif;
@@ -38,6 +39,7 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -114,7 +116,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--muted);
+  background: var(--background-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
