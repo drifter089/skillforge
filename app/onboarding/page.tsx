@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useUser } from "@clerk/nextjs";
+import { useUser, SignInButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import Cal, { getCalApi } from "@calcom/embed-react";
 
@@ -110,6 +110,47 @@ export default function OnboardingPage() {
             />
           </svg>
           <p className="text-slate-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-20">
+        <div className="max-w-lg mx-auto px-4 py-8 md:py-12">
+          <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+            <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg
+                className="w-8 h-8 text-indigo-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+              Sign In to Continue
+            </h1>
+            <p className="text-slate-600 mb-8">
+              Create an account or sign in to book your free onboarding call and
+              get started with personalized math tutoring.
+            </p>
+            <SignInButton mode="modal">
+              <button className="w-full px-8 py-4 text-lg font-semibold rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800 shadow-lg shadow-indigo-500/25 transition-all duration-200">
+                Sign In to Book Call
+              </button>
+            </SignInButton>
+            <p className="mt-4 text-sm text-slate-500">
+              Quick sign-up with Google. Takes less than 30 seconds.
+            </p>
+          </div>
         </div>
       </div>
     );
