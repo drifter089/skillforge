@@ -30,9 +30,9 @@ interface ButtonAsAnchor extends ButtonBaseProps {
 type ButtonProps = ButtonAsButton | ButtonAsLink | ButtonAsAnchor;
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 shadow-lg shadow-orange-500/25",
-  secondary: "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800",
-  outline: "border-2 border-blue-600 text-blue-600 hover:bg-blue-50 active:bg-blue-100",
+  primary: "bg-violet-600 text-white hover:bg-violet-700 active:bg-violet-800 shadow-lg shadow-violet-500/25",
+  secondary: "bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800",
+  outline: "border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 active:bg-indigo-100",
   ghost: "text-slate-600 hover:bg-slate-100 active:bg-slate-200",
 };
 
@@ -50,7 +50,7 @@ export function Button(props: ButtonProps) {
     children
   } = props;
 
-  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
 
