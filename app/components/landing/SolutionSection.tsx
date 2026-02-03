@@ -104,15 +104,6 @@ export function SolutionSection() {
           ))}
         </div>
 
-        {/* Bottom note */}
-        <div className="mt-12 text-center">
-          <p className="text-lg text-slate-700 font-medium">
-            It's like having a private tutor, but affordable.{" "}
-            <span className="text-slate-500">
-              For the price of one hour of private tutoring, you get an entire month of live classes.
-            </span>
-          </p>
-        </div>
       </Container>
     </section>
   );
