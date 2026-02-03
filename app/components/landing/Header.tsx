@@ -11,39 +11,21 @@ import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
 import { Logo } from "../Logo";
 
-const navLinks = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "FAQ", href: "#faq" },
-];
-
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
       {/* Desktop Header - hidden on mobile */}
-      <header className="fixed top-0 left-0 right-0 z-50 hidden md:block bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50">
+      <header className="absolute top-0 left-0 right-0 z-50 hidden md:block bg-slate-900/60 backdrop-blur-sm border-b border-slate-700/30">
         <Container>
-          <nav className="flex items-center justify-between h-20">
+          <nav className="flex items-center justify-between h-14">
             <Link href="/" className="flex items-center gap-3 group">
-              <Logo size="sm" className="w-10 h-10 transition-transform group-hover:scale-105" />
-              <span className="font-bold text-xl text-white">
+              <Logo size="sm" className="w-8 h-8 transition-transform group-hover:scale-105" />
+              <span className="font-bold text-lg text-white">
                 MatricMaths
               </span>
             </Link>
-
-            {/* Center Navigation */}
-            <div className="flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-slate-300 hover:text-indigo-400 font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-indigo-400 after:transition-all hover:after:w-full"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
 
             {/* Auth Buttons */}
             <div className="flex items-center gap-3">
@@ -100,18 +82,6 @@ export function Header() {
               <Logo size="sm" className="w-12 h-12" />
               <span className="font-bold text-2xl text-white">MatricMaths</span>
             </Link>
-
-            {/* Navigation Links */}
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-xl text-slate-300 hover:text-indigo-400 font-medium transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
 
             {/* Auth Section */}
             <div className="flex flex-col items-center gap-4 mt-6 w-full max-w-xs">
