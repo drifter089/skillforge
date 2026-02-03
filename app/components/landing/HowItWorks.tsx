@@ -66,7 +66,7 @@ export function HowItWorks() {
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 {/* Step card */}
-                <div className="bg-slate-800/50 rounded-2xl p-6 shadow-sm border border-slate-700/50 relative z-10">
+                <div className="bg-slate-800/50 rounded-2xl p-6 shadow-sm relative z-10">
                   {/* Number circle */}
                   <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 mx-auto">
                     {step.number}
@@ -114,7 +114,7 @@ export function HowItWorks() {
               </div>
 
               {/* Content */}
-              <div className="bg-slate-800/50 rounded-2xl p-6 shadow-sm border border-slate-700/50 flex-1 mb-2">
+              <div className="bg-slate-800/50 rounded-2xl p-6 shadow-sm flex-1 mb-2">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 flex-shrink-0">
                     {step.icon}
