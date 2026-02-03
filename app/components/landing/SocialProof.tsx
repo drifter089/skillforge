@@ -30,14 +30,14 @@ const testimonials = [
 
 export function SocialProof() {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-blue-600 to-blue-800 text-white">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-indigo-600 to-indigo-800 text-white">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Students Like You Are Already Improving
           </h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl text-indigo-100 max-w-2xl mx-auto">
             Real results from our pilot group of 84 students.
           </p>
         </div>
@@ -56,7 +56,7 @@ export function SocialProof() {
                 {stat.value}
                 <span className="text-2xl">{stat.suffix}</span>
               </div>
-              <div className="text-blue-100 text-sm">{stat.label}</div>
+              <div className="text-indigo-100 text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -82,7 +82,7 @@ export function SocialProof() {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 bg-gradient-to-br from-indigo-400 to-violet-600 rounded-full flex items-center justify-center text-white font-bold">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>
@@ -95,7 +95,7 @@ export function SocialProof() {
         </div>
 
         {/* Bottom note */}
-        <p className="text-center text-blue-200 text-sm mt-12">
+        <p className="text-center text-indigo-200 text-sm mt-12">
           *Based on pilot group data, 2025. Individual results may vary.
         </p>
       </Container>

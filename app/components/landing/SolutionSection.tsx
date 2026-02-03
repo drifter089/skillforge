@@ -84,13 +84,13 @@ export function SolutionSection() {
             <Card key={index} hover padding="lg" className="relative">
               {/* Highlight badge */}
               <div className="absolute top-4 right-4">
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+                <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-semibold rounded-full">
                   {feature.highlight}
                 </span>
               </div>
 
               <CardContent>
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white mb-5">
+                <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-2xl flex items-center justify-center text-white mb-5">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">

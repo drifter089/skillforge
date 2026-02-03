@@ -60,7 +60,7 @@ export function HowItWorks() {
         {/* Steps - Desktop */}
         <div className="hidden lg:block relative">
           {/* Connecting line */}
-          <div className="absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200" />
+          <div className="absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-200 via-indigo-400 to-indigo-200" />
 
           <div className="grid grid-cols-4 gap-8">
             {steps.map((step, index) => (
@@ -68,12 +68,12 @@ export function HowItWorks() {
                 {/* Step card */}
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative z-10">
                   {/* Number circle */}
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 mx-auto">
+                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 mx-auto">
                     {step.number}
                   </div>
 
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-4 mx-auto">
+                  <div className="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 mb-4 mx-auto">
                     {step.icon}
                   </div>
 
@@ -88,7 +88,7 @@ export function HowItWorks() {
 
                 {/* Arrow connector (not on last item) */}
                 {index < steps.length - 1 && (
-                  <div className="absolute top-24 -right-4 w-8 h-8 text-blue-400 z-20">
+                  <div className="absolute top-24 -right-4 w-8 h-8 text-indigo-400 z-20">
                     <svg fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
@@ -105,18 +105,18 @@ export function HowItWorks() {
             <div key={index} className="relative flex gap-6">
               {/* Timeline */}
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                   {step.number}
                 </div>
                 {index < steps.length - 1 && (
-                  <div className="w-0.5 flex-1 bg-blue-200 my-2" />
+                  <div className="w-0.5 flex-1 bg-indigo-200 my-2" />
                 )}
               </div>
 
               {/* Content */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex-1 mb-2">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 flex-shrink-0">
+                  <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 flex-shrink-0">
                     {step.icon}
                   </div>
                   <div>

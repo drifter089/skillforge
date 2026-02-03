@@ -63,8 +63,8 @@ export function SignupForm() {
         <SignedOut>
           <div className="max-w-lg mx-auto text-center px-2">
             <div className="bg-slate-50 rounded-2xl p-6 sm:p-8">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
@@ -99,7 +99,7 @@ export function SignupForm() {
                       className={`
                         flex items-center justify-center p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-colors active:scale-[0.98]
                         ${grade === g.value
-                          ? "border-blue-500 bg-blue-50 text-blue-700"
+                          ? "border-indigo-500 bg-indigo-50 text-indigo-700"
                           : "border-slate-200 bg-white hover:border-slate-300 active:bg-slate-50"
                         }
                       `}
@@ -131,7 +131,7 @@ export function SignupForm() {
                       className={`
                         flex items-start gap-3 p-3 sm:p-4 rounded-lg border-2 cursor-pointer transition-colors active:scale-[0.99]
                         ${classSize === size.value
-                          ? "border-blue-500 bg-blue-50"
+                          ? "border-indigo-500 bg-indigo-50"
                           : "border-slate-200 bg-white hover:border-slate-300 active:bg-slate-50"
                         }
                       `}

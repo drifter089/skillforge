@@ -83,7 +83,7 @@ export function Pricing() {
               className={`
                 relative rounded-2xl border-2 p-8
                 ${tier.popular
-                  ? "border-orange-500 bg-gradient-to-b from-orange-50 to-white shadow-xl scale-105 z-10"
+                  ? "border-violet-500 bg-gradient-to-b from-violet-50 to-white shadow-xl scale-105 z-10"
                   : "border-slate-200 bg-white"
                 }
               `}
@@ -91,7 +91,7 @@ export function Pricing() {
               {/* Popular badge */}
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-orange-500 text-white text-sm font-semibold px-4 py-1 rounded-full">
+                  <span className="bg-violet-500 text-white text-sm font-semibold px-4 py-1 rounded-full">
                     Most Popular
                   </span>
                 </div>
@@ -102,7 +102,7 @@ export function Pricing() {
                 <span className={`
                   text-xs font-bold px-3 py-1 rounded-full
                   ${tier.badge === "FREE" ? "bg-green-100 text-green-700" : ""}
-                  ${tier.badge === "STANDARD" ? "bg-blue-100 text-blue-700" : ""}
+                  ${tier.badge === "STANDARD" ? "bg-indigo-100 text-indigo-700" : ""}
                   ${tier.badge === "PREMIUM" ? "bg-purple-100 text-purple-700" : ""}
                 `}>
                   {tier.badge}
