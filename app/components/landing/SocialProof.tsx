@@ -61,7 +61,7 @@ export function SocialProof() {
               </div>
 
               {/* After */}
-              <div className="p-8 md:p-10 bg-gradient-to-br from-indigo-500/10 to-violet-500/10 relative">
+              <div className="p-8 md:p-10 bg-indigo-500/10 relative">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center">
                     <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ export function SocialProof() {
                 </div>
                 {/* Improvement badge */}
                 <div className="absolute top-4 right-4">
-                  <span className="bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg shadow-indigo-500/25">
+                  <span className="bg-indigo-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg shadow-indigo-500/25">
                     +16 pts
                   </span>
                 </div>
@@ -105,8 +105,8 @@ export function SocialProof() {
 
           <Card hover padding="md" className="text-center">
             <CardContent>
-              <div className="w-12 h-12 bg-violet-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <svg className="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
@@ -153,7 +153,7 @@ export function SocialProof() {
 
                 {/* Author */}
                 <div className="flex items-center gap-3 pt-4 border-t border-slate-700/50">
-                  <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div>
