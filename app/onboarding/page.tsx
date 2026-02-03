@@ -1,17 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useUser, UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import Cal, { getCalApi } from "@calcom/embed-react";
-import { Logo } from "@/app/components/Logo";
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "FAQ", href: "/#faq" },
-];
 
 const grades = [
   { value: "grade10", label: "Grade 10" },
@@ -42,7 +34,6 @@ export default function OnboardingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isChecking, setIsChecking] = useState(true);
   const [showCalendar, setShowCalendar] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (isLoaded && user) {
@@ -143,113 +134,10 @@ export default function OnboardingPage() {
     );
   }
 
-  // Header component for reuse
-  const Header = () => (
-    <header className="bg-white/80 backdrop-blur-md border-b border-slate-200/50">
-      <div className="max-w-4xl mx-auto px-4 py-3 sm:py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Logo size="sm" className="sm:w-10 sm:h-10" />
-            <span className="font-bold text-xl text-slate-900 hidden sm:block">MatricMaths</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-slate-600 hover:text-blue-600 font-medium transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <SignedIn>
-              <UserButton
-                appearance={{
-                  elements: {
-                    avatarBox: "w-10 h-10",
-                  },
-                }}
-              />
-            </SignedIn>
-            <SignedOut>
-              <Link
-                href="/sign-in"
-                className="text-slate-600 hover:text-blue-600 font-medium transition-colors"
-              >
-                Sign In
-              </Link>
-            </SignedOut>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-3 mt-3 border-t border-slate-200">
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-slate-600 hover:text-blue-600 hover:bg-slate-100 font-medium py-2 px-2 rounded-lg transition-colors text-sm"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="pt-3 mt-2 border-t border-slate-200 px-2">
-                <SignedIn>
-                  <div className="flex items-center gap-3">
-                    <UserButton
-                      appearance={{
-                        elements: {
-                          avatarBox: "w-8 h-8",
-                        },
-                      }}
-                    />
-                    <span className="text-sm text-slate-600">Account</span>
-                  </div>
-                </SignedIn>
-                <SignedOut>
-                  <Link
-                    href="/sign-in"
-                    className="block text-slate-600 hover:text-blue-600 font-medium py-2"
-                  >
-                    Sign In
-                  </Link>
-                </SignedOut>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </header>
-  );
-
   // Show calendar after form submission
   if (showCalendar) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <Header />
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-20">
         <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
           {/* Title */}
           <div className="text-center mb-6">
@@ -290,8 +178,7 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      <Header />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-20">
       <div className="max-w-lg mx-auto px-4 py-8 md:py-12">
         {/* Title */}
         <div className="text-center mb-8">
