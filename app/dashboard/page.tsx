@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 interface Student {
@@ -27,11 +27,24 @@ const classSizeLabels: Record<string, string> = {
   group: "Group (5-8)",
 };
 
-export default function DashboardPage() {
+function DashboardContent() {
   const { user, isLoaded } = useUser();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [student, setStudent] = useState<Student | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Initialize from URL params - show banner if user just booked
+  const justBooked = searchParams.get("booked") === "true";
+  const [showSuccessBanner, setShowSuccessBanner] = useState(justBooked);
+
+  useEffect(() => {
+    if (justBooked) {
+      window.history.replaceState({}, "", "/dashboard");
+      const timer = setTimeout(() => setShowSuccessBanner(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [justBooked]);
 
   useEffect(() => {
     if (isLoaded && user) {
@@ -75,6 +88,34 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-20">
+      {/* Success Banner */}
+      {showSuccessBanner && (
+        <div className="bg-green-50 border-b border-green-200">
+          <div className="max-w-4xl mx-auto px-4 py-3">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-green-800 font-medium">
+                  Booking confirmed! We&apos;ll see you at your onboarding call.
+                </p>
+              </div>
+              <button
+                onClick={() => setShowSuccessBanner(false)}
+                className="text-green-600 hover:text-green-800 p-1"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <main className="max-w-4xl mx-auto px-4 py-12">
         {/* Welcome Section */}
         <div className="mb-8">
@@ -216,5 +257,23 @@ export default function DashboardPage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <div className="flex flex-col items-center gap-4">
+          <svg className="animate-spin w-8 h-8 text-blue-600" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+          </svg>
+          <p className="text-slate-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <DashboardContent />
+    </Suspense>
   );
 }

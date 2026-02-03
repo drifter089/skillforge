@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { status } = body;
+    const { status, email, grade, classSize } = body;
 
     if (!["pending", "booked", "completed"].includes(status)) {
       return NextResponse.json(
@@ -20,11 +20,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const student = await prisma.student.update({
+    // Upsert student with all data in one call
+    const student = await prisma.student.upsert({
       where: { clerkUserId: userId },
-      data: {
+      update: {
         bookingStatus: status,
         bookedAt: status === "booked" ? new Date() : undefined,
+        ...(email && { email }),
+        ...(grade && { grade }),
+        ...(classSize && { classSize }),
+      },
+      create: {
+        clerkUserId: userId,
+        bookingStatus: status,
+        bookedAt: status === "booked" ? new Date() : undefined,
+        email: email || null,
+        grade: grade || null,
+        classSize: classSize || null,
       },
     });
 

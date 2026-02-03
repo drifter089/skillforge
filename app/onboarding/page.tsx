@@ -31,7 +31,6 @@ export default function OnboardingPage() {
   const router = useRouter();
   const [grade, setGrade] = useState("");
   const [classSize, setClassSize] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isChecking, setIsChecking] = useState(true);
   const [showCalendar, setShowCalendar] = useState(false);
 
@@ -61,51 +60,33 @@ export default function OnboardingPage() {
         cal("on", {
           action: "bookingSuccessful",
           callback: async () => {
-            // Update booking status in database
+            // Save all student data and update booking status in one call
             try {
               await fetch("/api/student/booking", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ status: "booked" }),
+                body: JSON.stringify({
+                  status: "booked",
+                  email: user?.primaryEmailAddress?.emailAddress,
+                  grade,
+                  classSize,
+                }),
               });
             } catch (error) {
               console.error("Error updating booking status:", error);
             }
-            // Redirect to dashboard
-            router.push("/booking-success");
+            // Go directly to dashboard with success flag
+            router.push("/dashboard?booked=true");
           },
         });
       })();
     }
-  }, [showCalendar, router]);
+  }, [showCalendar, router, user, grade, classSize]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Save student data to database
-      const response = await fetch("/api/student", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: user?.primaryEmailAddress?.emailAddress,
-          grade,
-          classSize,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to save data");
-      }
-
-      // Show the calendar embed instead of redirecting
-      setShowCalendar(true);
-      setIsSubmitting(false);
-    } catch (error) {
-      console.error("Error saving student data:", error);
-      setIsSubmitting(false);
-    }
+    // Show calendar immediately - data will be saved on booking success
+    setShowCalendar(true);
   };
 
   if (!isLoaded || isChecking) {
@@ -267,32 +248,10 @@ export default function OnboardingPage() {
           {/* Submit Button */}
           <button
             type="submit"
-            disabled={!grade || !classSize || isSubmitting}
+            disabled={!grade || !classSize}
             className="w-full px-8 py-4 text-lg font-semibold rounded-lg bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 shadow-lg shadow-orange-500/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isSubmitting ? (
-              <span className="flex items-center justify-center gap-2">
-                <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24">
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                    fill="none"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  />
-                </svg>
-                Loading calendar...
-              </span>
-            ) : (
-              "Continue to Book Call"
-            )}
+            Continue to Book Call
           </button>
 
           <p className="mt-4 text-center text-sm text-slate-500">
