@@ -46,14 +46,14 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-slate-50">
+    <section id="faq" className="py-20 md:py-28 bg-slate-900">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             Everything you need to know about our tutoring programme.
           </p>
         </div>
@@ -64,19 +64,19 @@ export function FAQ() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl border border-slate-200 overflow-hidden"
+                className="bg-slate-800/50 rounded-xl border border-slate-700/50 overflow-hidden"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-700/30 transition-colors"
                   aria-expanded={openIndex === index}
                 >
-                  <span className="font-semibold text-slate-900 pr-4">
+                  <span className="font-semibold text-white pr-4">
                     {faq.question}
                   </span>
                   <span className="flex-shrink-0">
                     {openIndex === index ? (
-                      <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                       </svg>
                     ) : (
@@ -92,7 +92,7 @@ export function FAQ() {
                     ${openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
                   `}
                 >
-                  <div className="px-6 pb-6 text-slate-600">
+                  <div className="px-6 pb-6 text-slate-300">
                     {faq.answer}
                   </div>
                 </div>
@@ -101,14 +101,14 @@ export function FAQ() {
           </div>
 
           {/* Still have questions */}
-          <div className="mt-12 text-center p-8 bg-indigo-50 rounded-2xl">
-            <h3 className="font-bold text-slate-900 mb-2">Still have questions?</h3>
-            <p className="text-slate-600 mb-4">
+          <div className="mt-12 text-center p-8 bg-indigo-500/10 rounded-2xl border border-indigo-500/20">
+            <h3 className="font-bold text-white mb-2">Still have questions?</h3>
+            <p className="text-slate-300 mb-4">
               We're here to help. Send us an email and we'll get back to you.
             </p>
             <a
               href="mailto:akshat@threxon.org"
-              className="inline-flex items-center gap-2 text-indigo-600 font-semibold hover:text-indigo-700"
+              className="inline-flex items-center gap-2 text-indigo-400 font-semibold hover:text-indigo-300"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

@@ -45,14 +45,14 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 md:py-28 bg-gradient-to-b from-slate-50 to-white">
+    <section id="how-it-works" className="py-20 md:py-28 bg-slate-800">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             How It Works
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             From sign-up to results in 4 simple steps.
           </p>
         </div>
@@ -60,28 +60,28 @@ export function HowItWorks() {
         {/* Steps - Desktop */}
         <div className="hidden lg:block relative">
           {/* Connecting line */}
-          <div className="absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-200 via-indigo-400 to-indigo-200" />
+          <div className="absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-900 via-indigo-500 to-indigo-900" />
 
           <div className="grid grid-cols-4 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 {/* Step card */}
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative z-10">
+                <div className="bg-slate-800/50 rounded-2xl p-6 shadow-sm border border-slate-700/50 relative z-10">
                   {/* Number circle */}
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 mx-auto">
+                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 mx-auto">
                     {step.number}
                   </div>
 
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 mb-4 mx-auto">
+                  <div className="w-16 h-16 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 mb-4 mx-auto">
                     {step.icon}
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-lg font-bold text-slate-900 mb-2 text-center">
+                  <h3 className="text-lg font-bold text-white mb-2 text-center">
                     {step.title}
                   </h3>
-                  <p className="text-slate-600 text-sm text-center">
+                  <p className="text-slate-300 text-sm text-center">
                     {step.description}
                   </p>
                 </div>
@@ -105,25 +105,25 @@ export function HowItWorks() {
             <div key={index} className="relative flex gap-6">
               {/* Timeline */}
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                   {step.number}
                 </div>
                 {index < steps.length - 1 && (
-                  <div className="w-0.5 flex-1 bg-indigo-200 my-2" />
+                  <div className="w-0.5 flex-1 bg-indigo-500/30 my-2" />
                 )}
               </div>
 
               {/* Content */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex-1 mb-2">
+              <div className="bg-slate-800/50 rounded-2xl p-6 shadow-sm border border-slate-700/50 flex-1 mb-2">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 flex-shrink-0">
+                  <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 flex-shrink-0">
                     {step.icon}
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    <h3 className="text-lg font-bold text-white mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-slate-600 text-sm">
+                    <p className="text-slate-300 text-sm">
                       {step.description}
                     </p>
                   </div>

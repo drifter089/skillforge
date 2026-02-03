@@ -66,17 +66,17 @@ export function SocialProof() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-6 text-slate-900"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/10"
             >
               {/* Improvement badge */}
               <div className="mb-4">
-                <span className="bg-green-100 text-green-700 text-sm font-semibold px-3 py-1 rounded-full">
+                <span className="bg-green-500/20 text-green-300 text-sm font-semibold px-3 py-1 rounded-full border border-green-500/30">
                   {testimonial.improvement}
                 </span>
               </div>
 
               {/* Quote */}
-              <blockquote className="text-slate-700 mb-6">
+              <blockquote className="text-indigo-100 mb-6">
                 "{testimonial.quote}"
               </blockquote>
 
@@ -86,8 +86,8 @@ export function SocialProof() {
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>
-                  <div className="font-semibold text-slate-900">{testimonial.name}</div>
-                  <div className="text-sm text-slate-500">{testimonial.detail}</div>
+                  <div className="font-semibold text-white">{testimonial.name}</div>
+                  <div className="text-sm text-indigo-200">{testimonial.detail}</div>
                 </div>
               </div>
             </div>

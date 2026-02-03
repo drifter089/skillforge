@@ -62,92 +62,92 @@ const parentProblems = [
 
 export function ProblemSection() {
   return (
-    <section className="py-20 md:py-28 bg-slate-50">
+    <section className="py-20 md:py-28 bg-slate-800">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Why Most Matric Students Struggle With Maths
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             (And Why It's Not Your Fault)
           </p>
         </div>
 
         {/* Stats bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-16 p-6 md:p-8 bg-white rounded-2xl shadow-sm border border-slate-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-16 p-6 md:p-8 bg-slate-800/50 rounded-2xl shadow-sm border border-slate-700/50">
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-red-600">31%</div>
-            <div className="text-sm text-slate-600">of matric maths students fail</div>
+            <div className="text-3xl md:text-4xl font-bold text-red-400">31%</div>
+            <div className="text-sm text-slate-300">of matric maths students fail</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-slate-900">3.9%</div>
-            <div className="text-sm text-slate-600">get distinctions</div>
+            <div className="text-3xl md:text-4xl font-bold text-white">3.9%</div>
+            <div className="text-sm text-slate-300">get distinctions</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-slate-900">80%</div>
-            <div className="text-sm text-slate-600">of govt schools dysfunctional</div>
+            <div className="text-3xl md:text-4xl font-bold text-white">80%</div>
+            <div className="text-sm text-slate-300">of govt schools dysfunctional</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-indigo-600">97%</div>
-            <div className="text-sm text-slate-600">distinctions from top 200 schools</div>
+            <div className="text-3xl md:text-4xl font-bold text-indigo-400">97%</div>
+            <div className="text-sm text-slate-300">distinctions from top 200 schools</div>
           </div>
         </div>
 
         {/* Two columns */}
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Students Column */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+          <div className="bg-slate-800/50 rounded-2xl p-8 shadow-sm border border-slate-700/50">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
-                <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center">
+                <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">For Students</h3>
+              <h3 className="text-2xl font-bold text-white">For Students</h3>
             </div>
             <div className="space-y-6">
               {studentProblems.map((problem, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-red-50 text-red-500 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 bg-red-500/10 text-red-400 rounded-lg flex items-center justify-center">
                     {problem.icon}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">{problem.title}</h4>
-                    <p className="text-slate-600 text-sm">{problem.description}</p>
+                    <h4 className="font-semibold text-white mb-1">{problem.title}</h4>
+                    <p className="text-slate-300 text-sm">{problem.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm text-slate-500 italic">
+            <p className="mt-6 text-sm text-slate-400 italic">
               "You're not bad at maths. You just never got the help you needed."
             </p>
           </div>
 
           {/* Parents Column */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+          <div className="bg-slate-800/50 rounded-2xl p-8 shadow-sm border border-slate-700/50">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center">
-                <svg className="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 bg-violet-500/20 rounded-xl flex items-center justify-center">
+                <svg className="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">For Parents</h3>
+              <h3 className="text-2xl font-bold text-white">For Parents</h3>
             </div>
             <div className="space-y-6">
               {parentProblems.map((problem, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-red-50 text-red-500 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-10 h-10 bg-red-500/10 text-red-400 rounded-lg flex items-center justify-center">
                     {problem.icon}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">{problem.title}</h4>
-                    <p className="text-slate-600 text-sm">{problem.description}</p>
+                    <h4 className="font-semibold text-white mb-1">{problem.title}</h4>
+                    <p className="text-slate-300 text-sm">{problem.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm text-slate-500 italic">
+            <p className="mt-6 text-sm text-slate-400 italic">
               "Your child deserves a teacher who knows their name."
             </p>
           </div>

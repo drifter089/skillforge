@@ -63,14 +63,14 @@ const tiers = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-white">
+    <section id="pricing" className="py-20 md:py-28 bg-slate-900">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Choose Your Path to Passing
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             Three plans. One goal: Get you ready for matric.
           </p>
         </div>
@@ -83,8 +83,8 @@ export function Pricing() {
               className={`
                 relative rounded-2xl border-2 p-8
                 ${tier.popular
-                  ? "border-violet-500 bg-gradient-to-b from-violet-50 to-white shadow-xl scale-105 z-10"
-                  : "border-slate-200 bg-white"
+                  ? "border-violet-500 bg-gradient-to-b from-violet-500/10 to-slate-800/50 shadow-xl shadow-violet-500/10 scale-105 z-10"
+                  : "border-slate-700/50 bg-slate-800/50"
                 }
               `}
             >
@@ -101,36 +101,36 @@ export function Pricing() {
               <div className="mb-4">
                 <span className={`
                   text-xs font-bold px-3 py-1 rounded-full
-                  ${tier.badge === "FREE" ? "bg-green-100 text-green-700" : ""}
-                  ${tier.badge === "STANDARD" ? "bg-indigo-100 text-indigo-700" : ""}
-                  ${tier.badge === "PREMIUM" ? "bg-purple-100 text-purple-700" : ""}
+                  ${tier.badge === "FREE" ? "bg-green-500/20 text-green-400 border border-green-500/30" : ""}
+                  ${tier.badge === "STANDARD" ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/30" : ""}
+                  ${tier.badge === "PREMIUM" ? "bg-purple-500/20 text-purple-300 border border-purple-500/30" : ""}
                 `}>
                   {tier.badge}
                 </span>
               </div>
 
               {/* Name and price */}
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">{tier.name}</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
               <div className="mb-2">
-                <span className="text-4xl font-bold text-slate-900">{tier.price}</span>
-                <span className="text-slate-500">{tier.period}</span>
+                <span className="text-4xl font-bold text-white">{tier.price}</span>
+                <span className="text-slate-400">{tier.period}</span>
               </div>
               {tier.annualPrice && (
-                <p className="text-sm text-green-600 font-medium mb-4">{tier.annualPrice}</p>
+                <p className="text-sm text-green-400 font-medium mb-4">{tier.annualPrice}</p>
               )}
               {!tier.annualPrice && <div className="h-6 mb-4" />}
 
               {/* Description */}
-              <p className="text-slate-600 mb-6">{tier.description}</p>
+              <p className="text-slate-300 mb-6">{tier.description}</p>
 
               {/* Features */}
               <ul className="space-y-3 mb-8">
                 {tier.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-slate-700 text-sm">{feature}</span>
+                    <span className="text-slate-300 text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -151,16 +151,16 @@ export function Pricing() {
 
         {/* FAQ note */}
         <div className="mt-16 max-w-3xl mx-auto">
-          <div className="bg-slate-50 rounded-2xl p-8">
-            <h4 className="font-bold text-slate-900 mb-4">Common Questions</h4>
+          <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700/50">
+            <h4 className="font-bold text-white mb-4">Common Questions</h4>
             <div className="space-y-4 text-sm">
               <div>
-                <p className="font-medium text-slate-900">Why is this cheaper than private tutoring?</p>
-                <p className="text-slate-600">Private tutoring is 1-on-1. We teach in small groups of 25, so the cost is shared. You still get attention and interaction, at a fraction of the price.</p>
+                <p className="font-medium text-white">Why is this cheaper than private tutoring?</p>
+                <p className="text-slate-300">Private tutoring is 1-on-1. We teach in small groups of 25, so the cost is shared. You still get attention and interaction, at a fraction of the price.</p>
               </div>
               <div>
-                <p className="font-medium text-slate-900">What if I can't afford any tier?</p>
-                <p className="text-slate-600">Start with our Free tier. If you attend consistently and show commitment, we offer scholarships to move up. Money shouldn't be the barrier.</p>
+                <p className="font-medium text-white">What if I can't afford any tier?</p>
+                <p className="text-slate-300">Start with our Free tier. If you attend consistently and show commitment, we offer scholarships to move up. Money shouldn't be the barrier.</p>
               </div>
             </div>
           </div>
