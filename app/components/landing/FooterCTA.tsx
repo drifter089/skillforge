@@ -6,7 +6,7 @@ import { Logo } from "../Logo";
 
 export function FooterCTA() {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <section className="py-20 md:py-28 bg-slate-900 text-white">
       <Container>
         <div className="text-center max-w-3xl mx-auto">
           {/* Headline */}

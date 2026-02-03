@@ -35,7 +35,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 md:py-28 bg-slate-800">
+    <section id="how-it-works" className="py-20 md:py-28 bg-slate-900">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -58,7 +58,7 @@ export function HowItWorks() {
                 {/* Step card */}
                 <div className="bg-slate-800/50 rounded-2xl p-6 shadow-sm relative z-10">
                   {/* Number circle */}
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 mx-auto">
+                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 mx-auto">
                     {step.number}
                   </div>
 
@@ -95,7 +95,7 @@ export function HowItWorks() {
             <div key={index} className="relative flex gap-6">
               {/* Timeline */}
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                   {step.number}
                 </div>
                 {index < steps.length - 1 && (

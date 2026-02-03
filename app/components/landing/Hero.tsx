@@ -35,13 +35,13 @@ export function Hero() {
 
   return (
     <section ref={heroRef} className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950" />
+      <div className="absolute inset-0 bg-slate-900" />
 
       <Container className="relative z-10">
         <div ref={contentRef} className="max-w-3xl mx-auto text-center px-2">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
             Private math tutor,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-indigo-300">
               but affordable.
             </span>
           </h1>
@@ -59,7 +59,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <p className="mt-5 sm:mt-6 text-sm font-medium text-violet-400">
+          <p className="mt-5 sm:mt-6 text-sm font-medium text-indigo-400">
             Limited seats available for first batch
           </p>
         </div>
