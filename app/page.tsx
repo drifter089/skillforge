@@ -1,4 +1,3 @@
-import { Header } from "./components/landing/Header";
 import { Hero } from "./components/landing/Hero";
 import { SolutionSection } from "./components/landing/SolutionSection";
 import { HowItWorks } from "./components/landing/HowItWorks";
@@ -9,9 +8,7 @@ import { FooterCTA } from "./components/landing/FooterCTA";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
+    <main>
         <Hero />
         <SolutionSection />
         <HowItWorks />
@@ -19,7 +16,6 @@ export default function Home() {
         <SignupForm />
         <FAQ />
         <FooterCTA />
-      </main>
-    </>
+    </main>
   );
 }
