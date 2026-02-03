@@ -3,38 +3,28 @@ import { Container } from "./ui/Container";
 const steps = [
   {
     number: "01",
-    title: "Choose Your Plan",
-    description: "Pick the plan that fits your budget. Premium for intensive support, Standard for solid preparation, or Free if you just need to get started.",
+    title: "Schedule Your Onboarding Call",
+    description: "Book a free call with us. We'll understand your goals, current level, and what you need to succeed.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
     )
   },
   {
     number: "02",
-    title: "Join Your Batch",
-    description: "We'll place you in a small group of 25 students at your level. Same teacher and classmates all year — a real learning community.",
+    title: "Get Your Custom Learning Path",
+    description: "We'll assess your strengths and gaps, then create a personalized study plan designed just for you.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
       </svg>
     )
   },
   {
     number: "03",
-    title: "Attend Live Classes",
-    description: "Twice a week, log in from your phone or computer. Learn, ask questions, practice problems. Miss one? Watch the recording.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-      </svg>
-    )
-  },
-  {
-    number: "04",
-    title: "Watch Your Marks Improve",
-    description: "With consistent practice and real teaching, you'll see progress in weeks, not months. Our average student improves by 15+ percentage points.",
+    title: "Join Classes & Start Improving",
+    description: "Attend live classes, practice with guidance, and watch your marks improve week after week.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -53,7 +43,7 @@ export function HowItWorks() {
             How It Works
           </h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            From sign-up to results in 4 simple steps.
+            From sign-up to results in 3 simple steps.
           </p>
         </div>
 
@@ -62,7 +52,7 @@ export function HowItWorks() {
           {/* Connecting line */}
           <div className="absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-900 via-indigo-500 to-indigo-900" />
 
-          <div className="grid grid-cols-4 gap-8">
+          <div className="grid grid-cols-3 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 {/* Step card */}

@@ -39,14 +39,6 @@ export function Hero() {
 
       <Container className="relative z-10">
         <div ref={contentRef} className="max-w-3xl mx-auto text-center px-2">
-          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-indigo-500/20 text-indigo-300 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8 border border-indigo-500/30">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-400"></span>
-            </span>
-            For Grades 9-12
-          </div>
-
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
             Private math tutor,{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
