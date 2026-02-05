@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
-:root {
+/* ============================================
+   DARK MODE (Default)
+   ============================================ */
+:root,
+:root.dark {
   /* Primary - Indigo (matches logo) */
   --color-primary-50: #eef2ff;
   --color-primary-100: #e0e7ff;
@@ -25,29 +29,84 @@
   --color-accent-800: #5b21b6;
   --color-accent-900: #4c1d95;
 
+  /* Semantic colors */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #fb7185;
+
   /* Backgrounds - Dark theme following 60-30-10 rule */
   --background: #0f172a;  /* slate-900 - 60% dominant */
   --background-secondary: #1e293b;  /* slate-800 - 30% secondary */
+  --background-tertiary: #334155;  /* slate-700 */
   --foreground: #f1f5f9;  /* slate-100 */
+  --foreground-secondary: #e2e8f0;  /* slate-200 */
   --muted: #334155;  /* slate-700 */
   --muted-foreground: #94a3b8;  /* slate-400 */
+  --border: #475569;  /* slate-600 */
+  --border-subtle: #334155;  /* slate-700 */
+
+  /* Card colors */
+  --card-bg: rgba(30, 41, 59, 0.5);  /* slate-800/50 */
+  --card-border: rgba(51, 65, 85, 0.5);  /* slate-700/50 */
+  --card-hover-bg: rgba(99, 102, 241, 0.1);  /* indigo-500/10 */
 
   /* Fonts */
   --font-sans: var(--font-nunito), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
 
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+:root.light {
+  /* Primary colors stay the same but adjusted for contrast */
+  --color-primary-500: #4f46e5;
+  --color-primary-600: #4338ca;
+  --color-accent-500: #7c3aed;
+  --color-accent-600: #6d28d9;
+
+  /* Backgrounds - Light theme */
+  --background: #ffffff;
+  --background-secondary: #f8fafc;  /* slate-50 */
+  --background-tertiary: #f1f5f9;  /* slate-100 */
+  --foreground: #0f172a;  /* slate-900 */
+  --foreground-secondary: #1e293b;  /* slate-800 */
+  --muted: #e2e8f0;  /* slate-200 */
+  --muted-foreground: #64748b;  /* slate-500 */
+  --border: #cbd5e1;  /* slate-300 */
+  --border-subtle: #e2e8f0;  /* slate-200 */
+
+  /* Card colors */
+  --card-bg: rgba(248, 250, 252, 0.8);  /* slate-50/80 */
+  --card-border: rgba(226, 232, 240, 0.8);  /* slate-200/80 */
+  --card-hover-bg: rgba(99, 102, 241, 0.05);  /* indigo-500/5 */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
   --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-card-hover-bg: var(--card-hover-bg);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 }
 
-/* Animations for math elements */
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Floating animations for decorative elements */
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-20px) rotate(5deg); }
@@ -67,6 +126,78 @@
   to { stroke-dashoffset: 0; }
 }
 
+/* New animations for enhanced UX */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Animation utility classes */
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -89,6 +220,49 @@
   animation: draw 2s ease-out forwards;
 }
 
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
 * {
   box-sizing: border-box;
 }
@@ -102,15 +276,63 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Focus styles for accessibility */
+/* Theme transition for all elements */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* Disable transitions on page load to prevent flash */
+.no-transition,
+.no-transition *,
+.no-transition *::before,
+.no-transition *::after {
+  transition: none !important;
+}
+
+/* ============================================
+   TYPOGRAPHY ENHANCEMENTS
+   ============================================ */
+
+/* Tighter letter-spacing for headlines */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
 :focus-visible {
   outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
 }
 
-/* Custom scrollbar */
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -128,7 +350,10 @@ body {
   background: var(--color-primary-500);
 }
 
-/* Mobile optimizations */
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   ============================================ */
+
 @media (max-width: 640px) {
   html {
     -webkit-tap-highlight-color: transparent;
@@ -146,17 +371,51 @@ body {
   }
 }
 
-/* Smooth animations for interactions */
+/* ============================================
+   MOTION PREFERENCES
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .transition-colors {
     transition-duration: 150ms;
   }
 }
 
-/* Safe area padding for notched devices */
+/* ============================================
+   SAFE AREAS
+   ============================================ */
+
 @supports (padding: env(safe-area-inset-bottom)) {
   body {
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
   }
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   ============================================ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+}
+
+.section-divider-gradient {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-primary-500), var(--color-accent-500), transparent);
 }
