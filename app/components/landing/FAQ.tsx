@@ -46,14 +46,17 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-slate-900">
+    <section id="faq" className="py-24 md:py-32 bg-[var(--background-secondary)]">
       <Container>
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Frequently Asked Questions
+        <div className="text-center mb-16 md:mb-20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">
+            Got Questions?
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--foreground)] mb-5">
+            Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[var(--muted-foreground)] max-w-2xl mx-auto">
             Everything you need to know about our tutoring programme.
           </p>
         </div>
@@ -64,26 +67,27 @@ export function FAQ() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-slate-800/50 rounded-xl border border-slate-700/50 overflow-hidden"
+                className="bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)] overflow-hidden"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-700/30 transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--card-hover-bg)] transition-colors"
                   aria-expanded={openIndex === index}
                 >
-                  <span className="font-semibold text-white pr-4">
+                  <span className="font-semibold text-[var(--foreground)] pr-4">
                     {faq.question}
                   </span>
                   <span className="flex-shrink-0">
-                    {openIndex === index ? (
-                      <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                      </svg>
-                    ) : (
-                      <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    )}
+                    <svg
+                      className={`w-5 h-5 transition-transform duration-300 ${
+                        openIndex === index ? "text-indigo-400 rotate-180" : "text-[var(--muted-foreground)]"
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
                   </span>
                 </button>
                 <div
@@ -92,7 +96,7 @@ export function FAQ() {
                     ${openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
                   `}
                 >
-                  <div className="px-6 pb-6 text-slate-300">
+                  <div className="px-6 pb-6 text-[var(--muted-foreground)] leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>
@@ -102,13 +106,13 @@ export function FAQ() {
 
           {/* Still have questions */}
           <div className="mt-12 text-center p-8 bg-indigo-500/10 rounded-2xl border border-indigo-500/20">
-            <h3 className="font-bold text-white mb-2">Still have questions?</h3>
-            <p className="text-slate-300 mb-4">
-              We're here to help. Send us an email and we'll get back to you.
+            <h3 className="font-bold text-[var(--foreground)] mb-2">Still have questions?</h3>
+            <p className="text-[var(--muted-foreground)] mb-4">
+              We&apos;re here to help. Send us an email and we&apos;ll get back to you.
             </p>
             <a
               href="mailto:akshat@threxon.org"
-              className="inline-flex items-center gap-2 text-indigo-400 font-semibold hover:text-indigo-300"
+              className="inline-flex items-center gap-2 text-indigo-400 font-semibold hover:text-indigo-300 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

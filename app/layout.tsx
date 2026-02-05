@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { PostHogProvider } from "./providers/PostHogProvider";
+import { ThemeProvider } from "./providers/ThemeProvider";
 import { Header } from "./components/landing/Header";
 import "./globals.css";
 
@@ -34,14 +35,16 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${nunito.variable} ${geistMono.variable} antialiased`}
         >
-          <PostHogProvider>
-            <Header />
-            {children}
-          </PostHogProvider>
+          <ThemeProvider>
+            <PostHogProvider>
+              <Header />
+              {children}
+            </PostHogProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

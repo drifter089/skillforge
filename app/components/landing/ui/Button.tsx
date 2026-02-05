@@ -30,10 +30,10 @@ interface ButtonAsAnchor extends ButtonBaseProps {
 type ButtonProps = ButtonAsButton | ButtonAsLink | ButtonAsAnchor;
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "bg-violet-600 text-white hover:bg-violet-700 active:bg-violet-800 shadow-lg shadow-violet-500/25",
+  primary: "bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-700 hover:to-indigo-700 active:from-violet-800 active:to-indigo-800 shadow-lg shadow-violet-500/25",
   secondary: "bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800",
-  outline: "border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 active:bg-indigo-100",
-  ghost: "text-slate-600 hover:bg-slate-100 active:bg-slate-200",
+  outline: "border-2 border-[var(--border)] text-[var(--foreground)] hover:bg-[var(--card-hover-bg)] active:bg-[var(--background-tertiary)]",
+  ghost: "text-[var(--muted-foreground)] hover:bg-[var(--card-hover-bg)] hover:text-[var(--foreground)] active:bg-[var(--background-secondary)]",
 };
 
 const sizes: Record<ButtonSize, string> = {
@@ -50,7 +50,7 @@ export function Button(props: ButtonProps) {
     children
   } = props;
 
-  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] disabled:opacity-50 disabled:cursor-not-allowed";
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
 

@@ -35,17 +35,17 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 md:py-28 bg-slate-900">
+    <section id="how-it-works" className="py-24 md:py-32 bg-[var(--background-secondary)]">
       <Container>
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-indigo-400 font-medium mb-3 tracking-wide uppercase text-sm">
+        <div className="text-center mb-16 md:mb-20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">
             Simple Process
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            How It Works
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--foreground)] mb-5">
+            How It <span className="text-gradient">Works</span>
           </h2>
-          <p className="text-lg text-slate-400 max-w-xl mx-auto">
+          <p className="text-lg md:text-xl text-[var(--muted-foreground)] max-w-xl mx-auto">
             From sign-up to results in 3 simple steps
           </p>
         </div>
@@ -55,7 +55,7 @@ export function HowItWorks() {
           <div className="grid grid-cols-3 gap-6">
             {steps.map((step, index) => (
               <div key={index} className="relative group">
-                {/* Connector line between cards - rendered first with z-0 */}
+                {/* Connector line between cards */}
                 {index < steps.length - 1 && (
                   <div className="absolute top-14 left-[calc(50%+60px)] w-[calc(100%-60px)] flex items-center z-0">
                     <div className="h-px flex-1 bg-gradient-to-r from-indigo-500/60 to-indigo-500/20" />
@@ -65,23 +65,23 @@ export function HowItWorks() {
                   </div>
                 )}
 
-                {/* Step card - z-10 to render above connector */}
-                <div className="relative z-10 bg-slate-800/60 border border-slate-700/50 rounded-2xl p-8 h-full transition-all duration-300 hover:border-indigo-500/30 hover:bg-slate-800/80">
+                {/* Step card */}
+                <div className="relative z-10 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-8 h-full transition-all duration-300 hover:border-indigo-500/30 hover:-translate-y-1">
                   {/* Top row: Number + Icon */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center text-white font-semibold text-lg">
+                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-indigo-500/25">
                       {step.number}
                     </div>
-                    <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400">
+                    <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
                       {step.icon}
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-bold text-[var(--foreground)] mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-slate-400 leading-relaxed">
+                  <p className="text-[var(--muted-foreground)] leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -94,30 +94,30 @@ export function HowItWorks() {
         <div className="lg:hidden space-y-4">
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              {/* Vertical connector - z-0 to render behind card */}
+              {/* Vertical connector */}
               {index < steps.length - 1 && (
-                <div className="absolute left-5 top-[72px] w-px h-[calc(100%-40px)] bg-gradient-to-b from-indigo-500/40 to-transparent z-0" />
+                <div className="absolute left-6 top-[72px] w-px h-[calc(100%-40px)] bg-gradient-to-b from-indigo-500/40 to-transparent z-0" />
               )}
 
-              {/* Card - z-10 to render above connector */}
-              <div className="relative z-10 bg-slate-800/60 border border-slate-700/50 rounded-2xl p-6">
+              {/* Card */}
+              <div className="relative z-10 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6">
                 <div className="flex items-start gap-5">
                   {/* Number */}
-                  <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center text-white font-semibold flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 shadow-lg shadow-indigo-500/25">
                     {step.number}
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-3 mb-2">
-                      <h3 className="text-lg font-semibold text-white">
+                      <h3 className="text-lg font-bold text-[var(--foreground)]">
                         {step.title}
                       </h3>
                       <div className="w-10 h-10 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 flex-shrink-0">
                         {step.icon}
                       </div>
                     </div>
-                    <p className="text-slate-400 text-sm leading-relaxed">
+                    <p className="text-[var(--muted-foreground)] text-sm leading-relaxed">
                       {step.description}
                     </p>
                   </div>
