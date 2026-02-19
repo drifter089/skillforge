@@ -10,7 +10,6 @@ import Link from "next/link";
 import { Container } from "./ui/Container";
 import { Button } from "./ui/Button";
 import { Logo } from "../Logo";
-import { ThemeToggle } from "./ui/ThemeToggle";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,9 +43,8 @@ export function Header() {
               </a>
             </div>
 
-            {/* Auth Buttons & Theme Toggle */}
+            {/* Auth Buttons */}
             <div className="flex items-center gap-3">
-              <ThemeToggle />
               <SignedOut>
                 <Button as="link" href="/sign-in" variant="ghost" size="sm" className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--background-secondary)]">
                   Sign In
@@ -84,7 +82,6 @@ export function Header() {
               <span className="font-bold text-[var(--foreground)]">MatricMaths</span>
             </Link>
             <div className="flex items-center gap-2">
-              <ThemeToggle />
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 rounded-lg bg-[var(--background-secondary)] border border-[var(--border-subtle)] transition-all hover:bg-[var(--background-tertiary)]"
