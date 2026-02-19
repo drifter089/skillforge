@@ -32,8 +32,8 @@ type ButtonProps = ButtonAsButton | ButtonAsLink | ButtonAsAnchor;
 const variants: Record<ButtonVariant, string> = {
   primary: "bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-700 hover:to-indigo-700 active:from-violet-800 active:to-indigo-800 shadow-lg shadow-violet-500/25",
   secondary: "bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-800",
-  outline: "border-2 border-[var(--border)] text-[var(--foreground)] hover:bg-[var(--card-hover-bg)] active:bg-[var(--background-tertiary)]",
-  ghost: "text-[var(--muted-foreground)] hover:bg-[var(--card-hover-bg)] hover:text-[var(--foreground)] active:bg-[var(--background-secondary)]",
+  outline: "border-2 border-slate-200 text-slate-900 hover:bg-indigo-50 hover:border-indigo-200 active:bg-slate-100",
+  ghost: "text-slate-500 hover:bg-indigo-50 hover:text-slate-900 active:bg-slate-100",
 };
 
 const sizes: Record<ButtonSize, string> = {
@@ -50,7 +50,7 @@ export function Button(props: ButtonProps) {
     children
   } = props;
 
-  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:opacity-50 disabled:cursor-not-allowed";
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
 

@@ -39,64 +39,61 @@ const faqs = [
 ];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="py-24 md:py-32 bg-[var(--background-secondary)]">
+    <section id="faq" className="py-16 md:py-20 bg-white">
       <Container>
-        {/* Section Header */}
-        <div className="text-center mb-16 md:mb-20">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-4">
-            Got Questions?
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[var(--foreground)] mb-5">
-            Frequently Asked <span className="text-gradient">Questions</span>
-          </h2>
-          <p className="text-lg md:text-xl text-[var(--muted-foreground)] max-w-2xl mx-auto">
-            Everything you need to know about our tutoring programme.
+        {/* Section Header - Centered */}
+        <div className="text-center mb-12 md:mb-16">
+          <p className="text-base font-semibold text-purple-600 uppercase tracking-wider mb-3">
+            FAQ
           </p>
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900">
+            Common questions.
+          </h2>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-4">
+        <div className="max-w-[680px] mx-auto">
+          <div className="flex flex-col gap-2">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)] overflow-hidden"
+                className="bg-white border border-slate-200 rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[var(--card-hover-bg)] transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left"
                   aria-expanded={openIndex === index}
                 >
-                  <span className="font-semibold text-[var(--foreground)] pr-4">
+                  <span className="font-semibold text-slate-900 pr-4">
                     {faq.question}
                   </span>
-                  <span className="flex-shrink-0">
-                    <svg
-                      className={`w-5 h-5 transition-transform duration-300 ${
-                        openIndex === index ? "text-indigo-400 rotate-180" : "text-[var(--muted-foreground)]"
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <span
+                    className={`
+                      flex-shrink-0 w-6 h-6 rounded-full bg-slate-100
+                      flex items-center justify-center text-slate-500
+                      transition-transform duration-300
+                      ${openIndex === index ? "rotate-45" : ""}
+                    `}
+                  >
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
                   </span>
                 </button>
                 <div
                   className={`
                     overflow-hidden transition-all duration-300 ease-in-out
-                    ${openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+                    ${openIndex === index ? "max-h-96" : "max-h-0"}
                   `}
                 >
-                  <div className="px-6 pb-6 text-[var(--muted-foreground)] leading-relaxed">
+                  <div className="px-6 pb-5 text-slate-600 leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>
@@ -105,14 +102,16 @@ export function FAQ() {
           </div>
 
           {/* Still have questions */}
-          <div className="mt-12 text-center p-8 bg-indigo-500/10 rounded-2xl border border-indigo-500/20">
-            <h3 className="font-bold text-[var(--foreground)] mb-2">Still have questions?</h3>
-            <p className="text-[var(--muted-foreground)] mb-4">
+          <div className="mt-10 text-center p-8 bg-slate-50 rounded-2xl border border-slate-200">
+            <h3 className="font-semibold text-lg text-slate-900 mb-2">
+              Still have questions?
+            </h3>
+            <p className="text-slate-600 mb-4">
               We&apos;re here to help. Send us an email and we&apos;ll get back to you.
             </p>
             <a
               href="mailto:akshat@threxon.org"
-              className="inline-flex items-center gap-2 text-indigo-400 font-semibold hover:text-indigo-300 transition-colors"
+              className="inline-flex items-center gap-2 text-violet-600 font-semibold hover:text-violet-700 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
