@@ -55,7 +55,7 @@ export function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[var(--foreground)] leading-[1.15] mb-4 sm:mb-6">
+            <h1 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-slate-900 leading-[1.15] mb-4 sm:mb-6">
               Pass Matric Maths{" "}
               <br className="hidden sm:block" />
               with{" "}
@@ -63,9 +63,9 @@ export function Hero() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-[var(--muted-foreground)] mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               Live classes, personal attention, and the support you need to walk into your exam confident.{" "}
-              <span className="text-[var(--foreground)] font-semibold">No surprises.</span>
+              <span className="text-slate-900 font-semibold">No surprises.</span>
             </p>
 
             {/* CTA Buttons */}
@@ -82,7 +82,7 @@ export function Hero() {
             </div>
 
             {/* Trust Points */}
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start items-center gap-2 sm:gap-x-4 sm:gap-y-2 text-sm text-[var(--muted-foreground)]">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start items-center gap-2 sm:gap-x-4 sm:gap-y-2 text-sm text-slate-500">
               <span className="inline-flex items-center gap-1.5">
                 <svg className="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
