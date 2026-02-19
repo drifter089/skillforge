@@ -51,7 +51,8 @@
   --card-hover-bg: rgba(99, 102, 241, 0.1);  /* indigo-500/10 */
 
   /* Fonts */
-  --font-sans: var(--font-nunito), system-ui, sans-serif;
+  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-heading: var(--font-heading), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
 
@@ -300,8 +301,9 @@ body {
    TYPOGRAPHY ENHANCEMENTS
    ============================================ */
 
-/* Tighter letter-spacing for headlines */
-h1, h2, h3 {
+/* Headings use Space Grotesk */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   letter-spacing: -0.02em;
 }
 

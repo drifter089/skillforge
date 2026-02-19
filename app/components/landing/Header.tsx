@@ -45,12 +45,15 @@ export function Header() {
             </div>
 
             {/* Auth Buttons & Theme Toggle */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <ThemeToggle />
               <SignedOut>
-                <Button as="link" href="/sign-in" variant="ghost" size="sm" className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--background-secondary)]">
+                <Link
+                  href="/sign-in"
+                  className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                >
                   Sign In
-                </Button>
+                </Link>
                 <Button as="link" href="/onboarding" variant="primary" size="sm">
                   Free Classes
                 </Button>
