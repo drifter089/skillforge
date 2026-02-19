@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 /* ============================================
-   DARK MODE (Default)
+   LIGHT MODE ONLY (60:30:10 Rule)
+   60% - White background
+   30% - Slate text and secondary surfaces
+   10% - Violet/Indigo accents
    ============================================ */
-:root,
-:root.dark {
-  /* Primary - Indigo (matches logo) */
+:root {
+  /* Primary - Indigo */
   --color-primary-50: #eef2ff;
   --color-primary-100: #e0e7ff;
   --color-primary-200: #c7d2fe;
@@ -17,7 +19,7 @@
   --color-primary-800: #3730a3;
   --color-primary-900: #312e81;
 
-  /* Accent - Violet (matches logo gradient) */
+  /* Accent - Violet */
   --color-accent-50: #f5f3ff;
   --color-accent-100: #ede9fe;
   --color-accent-200: #ddd6fe;
@@ -30,56 +32,34 @@
   --color-accent-900: #4c1d95;
 
   /* Semantic colors */
-  --color-success: #34d399;
-  --color-warning: #fbbf24;
-  --color-error: #fb7185;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
 
-  /* Backgrounds - Dark theme following 60-30-10 rule */
-  --background: #0f172a;  /* slate-900 - 60% dominant */
-  --background-secondary: #1e293b;  /* slate-800 - 30% secondary */
-  --background-tertiary: #334155;  /* slate-700 */
-  --foreground: #f1f5f9;  /* slate-100 */
-  --foreground-secondary: #e2e8f0;  /* slate-200 */
-  --muted: #334155;  /* slate-700 */
-  --muted-foreground: #94a3b8;  /* slate-400 */
-  --border: #475569;  /* slate-600 */
-  --border-subtle: #334155;  /* slate-700 */
-
-  /* Card colors */
-  --card-bg: rgba(30, 41, 59, 0.5);  /* slate-800/50 */
-  --card-border: rgba(51, 65, 85, 0.5);  /* slate-700/50 */
-  --card-hover-bg: rgba(99, 102, 241, 0.1);  /* indigo-500/10 */
-
-  /* Fonts */
-  --font-sans: var(--font-nunito), system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
-}
-
-/* ============================================
-   LIGHT MODE
-   ============================================ */
-:root.light {
-  /* Primary colors stay the same but adjusted for contrast */
-  --color-primary-500: #4f46e5;
-  --color-primary-600: #4338ca;
-  --color-accent-500: #7c3aed;
-  --color-accent-600: #6d28d9;
-
-  /* Backgrounds - Light theme */
+  /* Backgrounds - Light theme (60% white) */
   --background: #ffffff;
   --background-secondary: #f8fafc;  /* slate-50 */
   --background-tertiary: #f1f5f9;  /* slate-100 */
+
+  /* Text colors (30% slate) */
   --foreground: #0f172a;  /* slate-900 */
   --foreground-secondary: #1e293b;  /* slate-800 */
   --muted: #e2e8f0;  /* slate-200 */
   --muted-foreground: #64748b;  /* slate-500 */
-  --border: #cbd5e1;  /* slate-300 */
-  --border-subtle: #e2e8f0;  /* slate-200 */
+
+  /* Border colors */
+  --border: #e2e8f0;  /* slate-200 */
+  --border-subtle: #f1f5f9;  /* slate-100 */
 
   /* Card colors */
-  --card-bg: rgba(248, 250, 252, 0.8);  /* slate-50/80 */
-  --card-border: rgba(226, 232, 240, 0.8);  /* slate-200/80 */
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;  /* slate-200 */
   --card-hover-bg: rgba(99, 102, 241, 0.05);  /* indigo-500/5 */
+
+  /* Fonts */
+  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-heading: var(--font-heading), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
 @theme inline {
