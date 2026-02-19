@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Container } from "./ui/Container";
 
 const features = [
@@ -55,85 +54,44 @@ const features = [
 
 export function SolutionSection() {
   return (
-    <section id="features" className="relative pt-8 pb-16 sm:pt-12 sm:pb-20 md:pt-16 md:pb-28 bg-slate-50">
+    <section id="features" className="py-16 md:py-24 bg-slate-50">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Features */}
-          <div>
-            {/* Section Header */}
-            <div className="mb-10 sm:mb-12">
-              <p className="text-sm sm:text-base font-semibold text-violet-600 uppercase tracking-wide mb-2">
-                What you get
-              </p>
-              <h2 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-                Not just another YouTube video.
-              </h2>
-              <p className="text-base sm:text-lg text-slate-600">
-                Everything is built around one thing — getting you from struggling to passing.
-              </p>
-            </div>
+        {/* Section Header - Centered */}
+        <div className="text-center mb-12 md:mb-16 max-w-2xl mx-auto">
+          <p className="text-base font-semibold text-violet-600 uppercase tracking-wider mb-3">
+            What you get
+          </p>
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+            Not just another YouTube video.
+          </h2>
+          <p className="text-lg text-slate-600">
+            Everything is built around one thing — getting you from struggling to passing.
+          </p>
+        </div>
 
-            {/* Features List */}
-            <div className="space-y-4">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex gap-4 p-5 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all"
-                >
-                  {/* Icon */}
-                  <div className={`flex-shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center ${feature.color}`}>
-                    {feature.icon}
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-1.5">
-                      {feature.title}
-                    </h3>
-                    <p className="text-base text-slate-600 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column - Real Image */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src="/heropic.jpg"
-                  alt=""
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
+        {/* Features Grid - 2x2 */}
+        <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="flex gap-4 p-6 bg-white rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all"
+            >
+              {/* Icon */}
+              <div className={`flex-shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center ${feature.color}`}>
+                {feature.icon}
               </div>
 
-              {/* Overlay with stats */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
-
-              {/* Bottom content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="flex items-center gap-4">
-                  <div className="flex -space-x-2">
-                    <div className="w-10 h-10 rounded-full bg-violet-500 border-2 border-white flex items-center justify-center text-white font-semibold text-sm">A</div>
-                    <div className="w-10 h-10 rounded-full bg-blue-500 border-2 border-white flex items-center justify-center text-white font-semibold text-sm">S</div>
-                    <div className="w-10 h-10 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white font-semibold text-sm">T</div>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold">84+ students improved</p>
-                    <p className="text-white/70 text-sm">in our pilot programme</p>
-                  </div>
-                </div>
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-slate-900 mb-1.5">
+                  {feature.title}
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             </div>
-
-            {/* Decorative glow */}
-            <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-violet-200/50 to-blue-200/50 rounded-3xl blur-2xl" />
-          </div>
+          ))}
         </div>
       </Container>
     </section>
