@@ -34,12 +34,12 @@ export function Hero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative pt-20 pb-12 sm:pt-24 sm:pb-16 md:pt-32 md:pb-24 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[var(--background)]" />
+    <section ref={heroRef} className="relative pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 md:pb-28 overflow-hidden">
+      {/* Background - gradient to slate-50 at bottom for smooth transition */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-slate-50" />
 
       {/* Subtle accent gradient */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-violet-50 to-transparent" />
+      <div className="absolute top-0 right-0 w-1/2 h-2/3 bg-gradient-to-l from-violet-50/50 to-transparent" />
 
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
