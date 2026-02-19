@@ -46,7 +46,7 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-16 md:py-20 bg-[#F7F6FF]">
+    <section id="faq" className="py-16 md:py-20 bg-white">
       <Container>
         {/* Section Header - Centered */}
         <div className="text-center mb-12 md:mb-16">
