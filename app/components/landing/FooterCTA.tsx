@@ -6,7 +6,7 @@ import { Logo } from "../Logo";
 
 export function FooterCTA() {
   return (
-    <section className="py-24 md:py-32 bg-[var(--background-secondary)] relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl" />
@@ -60,18 +60,20 @@ export function FooterCTA() {
       </Container>
 
       {/* Footer */}
-      <div className="mt-20 pt-8 border-t border-[var(--border-subtle)]">
+      <div className="mt-20 border-t border-slate-200">
         <Container>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--muted-foreground)]">
-            <div className="flex items-center gap-2">
-              <Logo size="sm" />
-              <span className="font-medium text-[var(--foreground)]">MatricMaths</span>
-            </div>
+          <div className="flex justify-between items-center py-8">
+            <p className="text-base text-slate-600">
+              © 2026 <span className="font-[family-name:var(--font-heading)] font-semibold">MatricMaths</span>. All rights reserved.
+            </p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-[var(--foreground)] transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-[var(--foreground)] transition-colors">Terms of Service</a>
+              <a href="#" className="text-base text-slate-500 hover:text-violet-600 transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-base text-slate-500 hover:text-violet-600 transition-colors">
+                Terms of Service
+              </a>
             </div>
-            <p>© 2026 MatricMaths. All rights reserved.</p>
           </div>
         </Container>
       </div>
