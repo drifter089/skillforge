@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import { Nunito, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, DM_Sans, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { PostHogProvider } from "./providers/PostHogProvider";
-import { ThemeProvider } from "./providers/ThemeProvider";
 import { Header } from "./components/landing/Header";
 import "./globals.css";
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["500", "600", "700"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -37,14 +42,12 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${nunito.variable} ${geistMono.variable} antialiased`}
+          className={`${spaceGrotesk.variable} ${dmSans.variable} ${geistMono.variable} antialiased bg-white`}
         >
-          <ThemeProvider>
-            <PostHogProvider>
-              <Header />
-              {children}
-            </PostHogProvider>
-          </ThemeProvider>
+          <PostHogProvider>
+            <Header />
+            {children}
+          </PostHogProvider>
         </body>
       </html>
     </ClerkProvider>
