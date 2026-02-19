@@ -110,7 +110,7 @@ export function SocialProof() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 md:py-28 bg-violet-50">
+      <section className="py-16 md:py-20 bg-violet-50">
         <Container>
           {/* Section Header - Left Aligned */}
           <div className="mb-12 md:mb-16">
