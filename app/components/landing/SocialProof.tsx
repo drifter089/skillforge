@@ -29,24 +29,6 @@ const testimonials = [
   },
 ];
 
-const steps = [
-  {
-    number: "1",
-    title: "Sign Up Free",
-    description: "Create your account in 30 seconds. No credit card required.",
-  },
-  {
-    number: "2",
-    title: "Join a Live Class",
-    description: "Pick a time that works for you. Classes run daily.",
-  },
-  {
-    number: "3",
-    title: "Start Improving",
-    description: "Ask questions, get answers, and watch your marks go up.",
-  },
-];
-
 export function SocialProof() {
   return (
     <>
@@ -176,43 +158,6 @@ export function SocialProof() {
           <p className="text-sm text-slate-500 mt-8">
             *Based on pilot group data, 2025. Individual results may vary.
           </p>
-        </Container>
-      </section>
-
-      {/* 3 Steps Section */}
-      <section id="how-it-works" className="py-20 md:py-28 bg-white">
-        <Container>
-          {/* Section Header - Centered */}
-          <div className="text-center mb-12 md:mb-16">
-            <p className="text-base font-semibold text-purple-600 uppercase tracking-wider mb-3">
-              How to Start
-            </p>
-            <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900">
-              3 simple steps.
-            </h2>
-          </div>
-
-          {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {steps.map((step, index) => (
-              <div key={index} className="text-center">
-                {/* Number Circle */}
-                <div className="w-12 h-12 bg-violet-100 text-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="font-bold text-lg">{step.number}</span>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-semibold text-lg text-slate-900 mb-2">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-slate-500 leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
         </Container>
       </section>
     </>
