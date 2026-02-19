@@ -100,6 +100,25 @@ export function FAQ() {
               </div>
             ))}
           </div>
+
+          {/* Still have questions */}
+          <div className="mt-10 text-center p-8 bg-slate-50 rounded-2xl border border-slate-200">
+            <h3 className="font-semibold text-lg text-slate-900 mb-2">
+              Still have questions?
+            </h3>
+            <p className="text-slate-600 mb-4">
+              We&apos;re here to help. Send us an email and we&apos;ll get back to you.
+            </p>
+            <a
+              href="mailto:akshat@threxon.org"
+              className="inline-flex items-center gap-2 text-violet-600 font-semibold hover:text-violet-700 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Email us at akshat@threxon.org
+            </a>
+          </div>
         </div>
       </Container>
     </section>
