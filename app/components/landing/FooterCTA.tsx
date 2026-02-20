@@ -8,7 +8,7 @@ export function FooterCTA() {
   return (
     <>
       {/* CTA Section */}
-      <section className="py-[72px] md:py-[120px] bg-slate-50">
+      <section className="py-16 md:py-24 bg-slate-50">
         <Container>
           <div className="text-center max-w-[700px] mx-auto">
             {/* Heading */}

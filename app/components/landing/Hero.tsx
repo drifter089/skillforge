@@ -34,7 +34,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 md:pb-28 overflow-hidden">
+    <section ref={heroRef} className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden">
       {/* Background - gradient to slate-50 at bottom for smooth transition */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-slate-50" />
 
@@ -76,7 +76,7 @@ export function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </Button>
-              <Button as="anchor" href="#how-it-works" variant="outline" size="lg" className="w-full sm:w-auto min-h-[48px]">
+              <Button as="anchor" href="#features" variant="outline" size="lg" className="w-full sm:w-auto min-h-[48px]">
                 See How It Works
               </Button>
             </div>
