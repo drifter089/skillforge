@@ -33,7 +33,7 @@ export function SocialProof() {
   return (
     <>
       {/* Results Section */}
-      <section id="testimonials" className="py-20 md:py-28 bg-white">
+      <section id="testimonials" className="py-16 md:py-24 bg-white">
         <Container>
           {/* Section Header - Centered */}
           <div className="text-center mb-12 md:mb-16">
@@ -110,7 +110,7 @@ export function SocialProof() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-20 bg-slate-50">
+      <section className="py-16 md:py-24 bg-slate-50">
         <Container>
           {/* Section Header - Left Aligned */}
           <div className="mb-12 md:mb-16">
